@@ -1,0 +1,58 @@
+﻿@model quanlycuocdienthoai.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Indentity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Indentity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRegistered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRegistered)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KeyId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

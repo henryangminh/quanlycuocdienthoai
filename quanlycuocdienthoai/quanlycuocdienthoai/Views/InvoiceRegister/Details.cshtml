@@ -1,0 +1,42 @@
+﻿@model quanlycuocdienthoai.Models.InvoiceRegister
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InvoiceRegister</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerFK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumberFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumberFK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostRegister)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostRegister)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KeyId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

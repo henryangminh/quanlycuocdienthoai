@@ -1,0 +1,63 @@
+﻿@model IEnumerable<quanlycuocdienthoai.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KeyId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Indentity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateRegistered)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KeyId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Indentity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateRegistered)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id = item.KeyId }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id = item.KeyId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.KeyId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model quanlycuocdienthoai.Models.InvoicePostage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InvoicePostage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Month)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Month)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumberFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumberFK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaidPostage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaidPostage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KeyId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

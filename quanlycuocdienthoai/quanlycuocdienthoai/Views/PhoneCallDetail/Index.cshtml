@@ -1,0 +1,57 @@
+﻿@model IEnumerable<quanlycuocdienthoai.Models.PhoneCallDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumberFK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumberFKNavigation.PhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeFinish)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTotal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumberFK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumberFKNavigation.PhoneNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeFinish)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTotal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.KeyId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.KeyId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.KeyId })
+        </td>
+    </tr>
+}
+
+</table>

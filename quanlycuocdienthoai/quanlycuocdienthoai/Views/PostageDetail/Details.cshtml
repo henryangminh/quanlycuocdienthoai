@@ -1,0 +1,42 @@
+﻿@model quanlycuocdienthoai.Models.PostageDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PostageDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PostageFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostageFK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HourMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HourMark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KeyId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

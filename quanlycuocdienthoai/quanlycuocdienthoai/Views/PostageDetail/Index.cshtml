@@ -1,0 +1,40 @@
+﻿@model IEnumerable<quanlycuocdienthoai.Models.PostageDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @*Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostageFK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HourMark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostageFK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HourMark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cost)
+        </td>
+    </tr>
+}
+
+</table>

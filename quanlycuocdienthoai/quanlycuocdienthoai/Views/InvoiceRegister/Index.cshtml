@@ -1,0 +1,51 @@
+﻿@model IEnumerable<quanlycuocdienthoai.Models.InvoiceRegister>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerFK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerFKNavigation.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumberFKNavigation.PhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostRegister)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerFK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerFKNavigation.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumberFKNavigation.PhoneNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostRegister)
+        </td>
+        <td>
+            @Html.ActionLink("Sừa", "Edit", new { id = item.KeyId }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id = item.KeyId }) |
+            @Html.ActionLink("Khóa", "Delete", new { id = item.KeyId })
+        </td>
+    </tr>
+}
+
+</table>
