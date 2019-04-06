@@ -14,7 +14,7 @@ namespace quanlycuocdienthoai.DAL
             {
                 context.Customers.AddRange(new List<Customer>()
                 {
-                    new Customer(){ CustomerName="Bé Yêu", Address="Số 1 Đường Bé Yêu", DateRegistered=new DateTime(2019,4,1), Email="hippore114@gmail.com", Indentity="069123412" }
+                    new Customer(){ CustomerName="Bé Yêu", Address="Số 1 Đường Bé Yêu", DateRegistered=new DateTime(2019,4,1), Email="hippore114@gmail.com", Identity="069123412" }
                 });
             }
             context.SaveChanges();
