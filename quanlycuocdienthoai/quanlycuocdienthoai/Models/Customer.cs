@@ -6,7 +6,7 @@ namespace quanlycuocdienthoai.Models
     public class Customer : DomainEntity<int>
     {
         public string CustomerName { get; set; }
-        public string Identity { get; set; }
+        public string CMND { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
         public DateTime DateRegistered { get; set; }

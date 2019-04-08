@@ -6,7 +6,7 @@ namespace quanlycuocdienthoai.DAL
 {
     public class PostageContext : DbContext
     {
-        public PostageContext() : base("PostageContext")
+        public PostageContext() : base("qlcdt")
         { }
 
         #region Create DbSet
@@ -22,6 +22,8 @@ namespace quanlycuocdienthoai.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<PostageContext>(null);
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
