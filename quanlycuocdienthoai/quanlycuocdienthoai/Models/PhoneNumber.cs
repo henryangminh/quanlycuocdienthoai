@@ -7,7 +7,7 @@ namespace quanlycuocdienthoai.Models
     {
         public string PhoneNo { get; set; }
         /// <summary>
-        /// true: Active (cannot use because this phone number is used)
+        /// true: Active (cannot be used because this phone number is used)
         /// false: Inactive
         /// </summary>
         [DefaultValue(false)]

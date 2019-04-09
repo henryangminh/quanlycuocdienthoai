@@ -75,7 +75,8 @@
             this.txtViewRegisterPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtViewRegisterDateRegister = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtViewRegisterCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtViewRegisterBtnBlock = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtViewStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnRegisterBlock = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.cbxRegisterPhoneNumberSearch = new System.Windows.Forms.ComboBox();
@@ -103,13 +104,51 @@
             this.tabPageInvoicePostage = new System.Windows.Forms.TabPage();
             this.tabPagePhoneCallDetail = new System.Windows.Forms.TabPage();
             this.tabPageSIM = new System.Windows.Forms.TabPage();
+            this.btnAddSim = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.nudViewSimQuantity = new System.Windows.Forms.NumericUpDown();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.tabPagePhoneNumber = new System.Windows.Forms.TabPage();
+            this.cbxViewPhoneNumberPhoneNoSearch = new System.Windows.Forms.ComboBox();
+            this.btnViewPhoneNumberSearch = new System.Windows.Forms.Button();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.grvPhoneNumber = new System.Windows.Forms.DataGridView();
+            this.txtViewPhoneNumberKeyId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtViewPhoneNumberPhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtViewPhoneNumberStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddPhoneNumber = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtPhoneNumberPhoneNo = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label36 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.btnViewSimAssign = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.txtViewSimKeyId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtViewSimPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtViewSimStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnViewSimBlock = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPostageProject.SuspendLayout();
             this.tabPageCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomer)).BeginInit();
             this.tabPageInvoiceRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvRegister)).BeginInit();
+            this.tabPageSIM.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudViewSimQuantity)).BeginInit();
+            this.tabPagePhoneNumber.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPhoneNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPostageProject
@@ -531,7 +570,8 @@
             this.txtViewRegisterPhoneNumber,
             this.txtViewRegisterDateRegister,
             this.txtViewRegisterCost,
-            this.txtViewRegisterBtnBlock});
+            this.txtViewStatus,
+            this.btnRegisterBlock});
             this.grvRegister.Location = new System.Drawing.Point(13, 289);
             this.grvRegister.Name = "grvRegister";
             this.grvRegister.ReadOnly = true;
@@ -550,7 +590,7 @@
             this.txtViewRegisterCustomerName.HeaderText = "Tên khách hàng";
             this.txtViewRegisterCustomerName.Name = "txtViewRegisterCustomerName";
             this.txtViewRegisterCustomerName.ReadOnly = true;
-            this.txtViewRegisterCustomerName.Width = 200;
+            this.txtViewRegisterCustomerName.Width = 150;
             // 
             // txtViewRegisterCustomerIdentity
             // 
@@ -577,13 +617,20 @@
             this.txtViewRegisterCost.Name = "txtViewRegisterCost";
             this.txtViewRegisterCost.ReadOnly = true;
             // 
-            // txtViewRegisterBtnBlock
+            // txtViewStatus
             // 
-            this.txtViewRegisterBtnBlock.HeaderText = "";
-            this.txtViewRegisterBtnBlock.Name = "txtViewRegisterBtnBlock";
-            this.txtViewRegisterBtnBlock.ReadOnly = true;
-            this.txtViewRegisterBtnBlock.Text = "Khóa";
-            this.txtViewRegisterBtnBlock.UseColumnTextForButtonValue = true;
+            this.txtViewStatus.HeaderText = "Trạng thái";
+            this.txtViewStatus.Name = "txtViewStatus";
+            this.txtViewStatus.ReadOnly = true;
+            this.txtViewStatus.Width = 150;
+            // 
+            // btnRegisterBlock
+            // 
+            this.btnRegisterBlock.HeaderText = "";
+            this.btnRegisterBlock.Name = "btnRegisterBlock";
+            this.btnRegisterBlock.ReadOnly = true;
+            this.btnRegisterBlock.Text = "Khóa";
+            this.btnRegisterBlock.UseColumnTextForButtonValue = true;
             // 
             // label31
             // 
@@ -780,7 +827,6 @@
             this.txtRegisterCustomer.Name = "txtRegisterCustomer";
             this.txtRegisterCustomer.Size = new System.Drawing.Size(241, 20);
             this.txtRegisterCustomer.TabIndex = 17;
-            //this.txtRegisterCustomer.TextChanged += new System.EventHandler(this.txtRegisterCustomer_Change);
             this.txtRegisterCustomer.Leave += new System.EventHandler(this.txtRegisterCustomer_Change);
             // 
             // label16
@@ -825,6 +871,22 @@
             // 
             // tabPageSIM
             // 
+            this.tabPageSIM.Controls.Add(this.label40);
+            this.tabPageSIM.Controls.Add(this.comboBox3);
+            this.tabPageSIM.Controls.Add(this.button1);
+            this.tabPageSIM.Controls.Add(this.label39);
+            this.tabPageSIM.Controls.Add(this.dataGridView1);
+            this.tabPageSIM.Controls.Add(this.btnViewSimAssign);
+            this.tabPageSIM.Controls.Add(this.comboBox2);
+            this.tabPageSIM.Controls.Add(this.label38);
+            this.tabPageSIM.Controls.Add(this.comboBox1);
+            this.tabPageSIM.Controls.Add(this.label37);
+            this.tabPageSIM.Controls.Add(this.label36);
+            this.tabPageSIM.Controls.Add(this.btnAddSim);
+            this.tabPageSIM.Controls.Add(this.label33);
+            this.tabPageSIM.Controls.Add(this.nudViewSimQuantity);
+            this.tabPageSIM.Controls.Add(this.label28);
+            this.tabPageSIM.Controls.Add(this.label26);
             this.tabPageSIM.Location = new System.Drawing.Point(4, 22);
             this.tabPageSIM.Name = "tabPageSIM";
             this.tabPageSIM.Padding = new System.Windows.Forms.Padding(3);
@@ -833,8 +895,78 @@
             this.tabPageSIM.Text = "SIM";
             this.tabPageSIM.UseVisualStyleBackColor = true;
             // 
+            // btnAddSim
+            // 
+            this.btnAddSim.Location = new System.Drawing.Point(243, 67);
+            this.btnAddSim.Name = "btnAddSim";
+            this.btnAddSim.Size = new System.Drawing.Size(75, 23);
+            this.btnAddSim.TabIndex = 42;
+            this.btnAddSim.Text = "Thêm";
+            this.btnAddSim.UseVisualStyleBackColor = true;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(8, 71);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(49, 13);
+            this.label33.TabIndex = 28;
+            this.label33.Text = "Số lượng";
+            // 
+            // nudViewSimQuantity
+            // 
+            this.nudViewSimQuantity.Location = new System.Drawing.Point(106, 69);
+            this.nudViewSimQuantity.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudViewSimQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudViewSimQuantity.Name = "nudViewSimQuantity";
+            this.nudViewSimQuantity.Size = new System.Drawing.Size(120, 20);
+            this.nudViewSimQuantity.TabIndex = 27;
+            this.nudViewSimQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(6, 41);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(106, 25);
+            this.label28.TabIndex = 26;
+            this.label28.Text = "Thêm mới";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label26.Location = new System.Drawing.Point(3, 3);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(74, 38);
+            this.label26.TabIndex = 3;
+            this.label26.Text = "SIM";
+            // 
             // tabPagePhoneNumber
             // 
+            this.tabPagePhoneNumber.Controls.Add(this.cbxViewPhoneNumberPhoneNoSearch);
+            this.tabPagePhoneNumber.Controls.Add(this.btnViewPhoneNumberSearch);
+            this.tabPagePhoneNumber.Controls.Add(this.label34);
+            this.tabPagePhoneNumber.Controls.Add(this.label35);
+            this.tabPagePhoneNumber.Controls.Add(this.grvPhoneNumber);
+            this.tabPagePhoneNumber.Controls.Add(this.btnAddPhoneNumber);
+            this.tabPagePhoneNumber.Controls.Add(this.label24);
+            this.tabPagePhoneNumber.Controls.Add(this.label22);
+            this.tabPagePhoneNumber.Controls.Add(this.txtPhoneNumberPhoneNo);
+            this.tabPagePhoneNumber.Controls.Add(this.label20);
             this.tabPagePhoneNumber.Location = new System.Drawing.Point(4, 22);
             this.tabPagePhoneNumber.Name = "tabPagePhoneNumber";
             this.tabPagePhoneNumber.Padding = new System.Windows.Forms.Padding(3);
@@ -842,6 +974,128 @@
             this.tabPagePhoneNumber.TabIndex = 5;
             this.tabPagePhoneNumber.Text = "Số điện thoại";
             this.tabPagePhoneNumber.UseVisualStyleBackColor = true;
+            // 
+            // cbxViewPhoneNumberPhoneNoSearch
+            // 
+            this.cbxViewPhoneNumberPhoneNoSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxViewPhoneNumberPhoneNoSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbxViewPhoneNumberPhoneNoSearch.FormattingEnabled = true;
+            this.cbxViewPhoneNumberPhoneNoSearch.Location = new System.Drawing.Point(123, 173);
+            this.cbxViewPhoneNumberPhoneNoSearch.Name = "cbxViewPhoneNumberPhoneNoSearch";
+            this.cbxViewPhoneNumberPhoneNoSearch.Size = new System.Drawing.Size(241, 21);
+            this.cbxViewPhoneNumberPhoneNoSearch.TabIndex = 47;
+            // 
+            // btnViewPhoneNumberSearch
+            // 
+            this.btnViewPhoneNumberSearch.Location = new System.Drawing.Point(370, 172);
+            this.btnViewPhoneNumberSearch.Name = "btnViewPhoneNumberSearch";
+            this.btnViewPhoneNumberSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnViewPhoneNumberSearch.TabIndex = 46;
+            this.btnViewPhoneNumberSearch.Text = "Tìm";
+            this.btnViewPhoneNumberSearch.UseVisualStyleBackColor = true;
+            this.btnViewPhoneNumberSearch.Click += new System.EventHandler(this.btnViewPhoneNumberSearch_Click);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(8, 137);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(98, 25);
+            this.label34.TabIndex = 45;
+            this.label34.Text = "Tìm kiếm";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(10, 176);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(70, 13);
+            this.label35.TabIndex = 44;
+            this.label35.Text = "Số điện thoại";
+            // 
+            // grvPhoneNumber
+            // 
+            this.grvPhoneNumber.AllowUserToAddRows = false;
+            this.grvPhoneNumber.AllowUserToDeleteRows = false;
+            this.grvPhoneNumber.AllowUserToOrderColumns = true;
+            this.grvPhoneNumber.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvPhoneNumber.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtViewPhoneNumberKeyId,
+            this.txtViewPhoneNumberPhoneNo,
+            this.txtViewPhoneNumberStatus});
+            this.grvPhoneNumber.Location = new System.Drawing.Point(13, 243);
+            this.grvPhoneNumber.Name = "grvPhoneNumber";
+            this.grvPhoneNumber.ReadOnly = true;
+            this.grvPhoneNumber.Size = new System.Drawing.Size(956, 429);
+            this.grvPhoneNumber.TabIndex = 42;
+            // 
+            // txtViewPhoneNumberKeyId
+            // 
+            this.txtViewPhoneNumberKeyId.HeaderText = "KeyId";
+            this.txtViewPhoneNumberKeyId.Name = "txtViewPhoneNumberKeyId";
+            this.txtViewPhoneNumberKeyId.ReadOnly = true;
+            this.txtViewPhoneNumberKeyId.Width = 200;
+            // 
+            // txtViewPhoneNumberPhoneNo
+            // 
+            this.txtViewPhoneNumberPhoneNo.HeaderText = "SĐT";
+            this.txtViewPhoneNumberPhoneNo.Name = "txtViewPhoneNumberPhoneNo";
+            this.txtViewPhoneNumberPhoneNo.ReadOnly = true;
+            this.txtViewPhoneNumberPhoneNo.Width = 200;
+            // 
+            // txtViewPhoneNumberStatus
+            // 
+            this.txtViewPhoneNumberStatus.HeaderText = "Tình trạng";
+            this.txtViewPhoneNumberStatus.Name = "txtViewPhoneNumberStatus";
+            this.txtViewPhoneNumberStatus.ReadOnly = true;
+            this.txtViewPhoneNumberStatus.Width = 200;
+            // 
+            // btnAddPhoneNumber
+            // 
+            this.btnAddPhoneNumber.Location = new System.Drawing.Point(370, 79);
+            this.btnAddPhoneNumber.Name = "btnAddPhoneNumber";
+            this.btnAddPhoneNumber.Size = new System.Drawing.Size(75, 23);
+            this.btnAddPhoneNumber.TabIndex = 41;
+            this.btnAddPhoneNumber.Text = "Thêm";
+            this.btnAddPhoneNumber.UseVisualStyleBackColor = true;
+            this.btnAddPhoneNumber.Click += new System.EventHandler(this.btnAddPhoneNumber_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(8, 45);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(106, 25);
+            this.label24.TabIndex = 25;
+            this.label24.Text = "Thêm mới";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(10, 84);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(70, 13);
+            this.label22.TabIndex = 24;
+            this.label22.Text = "Số điện thoại";
+            // 
+            // txtPhoneNumberPhoneNo
+            // 
+            this.txtPhoneNumberPhoneNo.Location = new System.Drawing.Point(123, 81);
+            this.txtPhoneNumberPhoneNo.Name = "txtPhoneNumberPhoneNo";
+            this.txtPhoneNumberPhoneNo.Size = new System.Drawing.Size(241, 20);
+            this.txtPhoneNumberPhoneNo.TabIndex = 23;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label20.Location = new System.Drawing.Point(6, 3);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(206, 38);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Số điện thoại";
             // 
             // tabPage4
             // 
@@ -852,6 +1106,147 @@
             this.tabPage4.TabIndex = 6;
             this.tabPage4.Text = "Giá cước";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(6, 109);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(184, 25);
+            this.label36.TabIndex = 43;
+            this.label36.Text = "Gán SĐT vào SIM";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(121, 184);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(241, 21);
+            this.comboBox1.TabIndex = 49;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(8, 187);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(70, 13);
+            this.label37.TabIndex = 48;
+            this.label37.Text = "Số điện thoại";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(121, 147);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(241, 21);
+            this.comboBox2.TabIndex = 51;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(8, 150);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(42, 13);
+            this.label38.TabIndex = 50;
+            this.label38.Text = "Số SIM";
+            // 
+            // btnViewSimAssign
+            // 
+            this.btnViewSimAssign.Location = new System.Drawing.Point(151, 223);
+            this.btnViewSimAssign.Name = "btnViewSimAssign";
+            this.btnViewSimAssign.Size = new System.Drawing.Size(75, 23);
+            this.btnViewSimAssign.TabIndex = 52;
+            this.btnViewSimAssign.Text = "Gán";
+            this.btnViewSimAssign.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtViewSimKeyId,
+            this.txtViewSimPhoneNumber,
+            this.txtViewSimStatus,
+            this.btnViewSimBlock});
+            this.dataGridView1.Location = new System.Drawing.Point(11, 348);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(958, 324);
+            this.dataGridView1.TabIndex = 53;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(121, 310);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(241, 21);
+            this.comboBox3.TabIndex = 56;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(368, 309);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 55;
+            this.button1.Text = "Tìm";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(8, 313);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(70, 13);
+            this.label39.TabIndex = 54;
+            this.label39.Text = "Số điện thoại";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(6, 277);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(98, 25);
+            this.label40.TabIndex = 57;
+            this.label40.Text = "Tìm kiếm";
+            // 
+            // txtViewSimKeyId
+            // 
+            this.txtViewSimKeyId.HeaderText = "KeyId";
+            this.txtViewSimKeyId.Name = "txtViewSimKeyId";
+            this.txtViewSimKeyId.ReadOnly = true;
+            this.txtViewSimKeyId.Width = 200;
+            // 
+            // txtViewSimPhoneNumber
+            // 
+            this.txtViewSimPhoneNumber.HeaderText = "SĐT";
+            this.txtViewSimPhoneNumber.Name = "txtViewSimPhoneNumber";
+            this.txtViewSimPhoneNumber.ReadOnly = true;
+            this.txtViewSimPhoneNumber.Width = 200;
+            // 
+            // txtViewSimStatus
+            // 
+            this.txtViewSimStatus.HeaderText = "Tình trạng";
+            this.txtViewSimStatus.Name = "txtViewSimStatus";
+            this.txtViewSimStatus.ReadOnly = true;
+            this.txtViewSimStatus.Width = 200;
+            // 
+            // btnViewSimBlock
+            // 
+            this.btnViewSimBlock.HeaderText = "";
+            this.btnViewSimBlock.Name = "btnViewSimBlock";
+            this.btnViewSimBlock.ReadOnly = true;
+            this.btnViewSimBlock.Text = "Khóa";
+            this.btnViewSimBlock.UseColumnTextForButtonValue = true;
             // 
             // Main
             // 
@@ -868,6 +1263,13 @@
             this.tabPageInvoiceRegister.ResumeLayout(false);
             this.tabPageInvoiceRegister.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvRegister)).EndInit();
+            this.tabPageSIM.ResumeLayout(false);
+            this.tabPageSIM.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudViewSimQuantity)).EndInit();
+            this.tabPagePhoneNumber.ResumeLayout(false);
+            this.tabPagePhoneNumber.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPhoneNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -950,7 +1352,41 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewRegisterPhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewRegisterDateRegister;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewRegisterCost;
-        private System.Windows.Forms.DataGridViewButtonColumn txtViewRegisterBtnBlock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewStatus;
+        private System.Windows.Forms.DataGridViewButtonColumn btnRegisterBlock;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtPhoneNumberPhoneNo;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.DataGridView grvPhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewPhoneNumberKeyId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewPhoneNumberPhoneNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewPhoneNumberStatus;
+        private System.Windows.Forms.Button btnAddPhoneNumber;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.NumericUpDown nudViewSimQuantity;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button btnAddSim;
+        private System.Windows.Forms.Button btnViewPhoneNumberSearch;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.ComboBox cbxViewPhoneNumberPhoneNoSearch;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnViewSimAssign;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewSimKeyId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewSimPhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewSimStatus;
+        private System.Windows.Forms.DataGridViewButtonColumn btnViewSimBlock;
     }
 }
 
