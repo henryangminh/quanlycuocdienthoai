@@ -194,11 +194,6 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\InvoicePostage\Create.cshtml" />
-    <Content Include="Views\InvoicePostage\Delete.cshtml" />
-    <Content Include="Views\InvoicePostage\Details.cshtml" />
-    <Content Include="Views\InvoicePostage\Edit.cshtml" />
-    <Content Include="Views\InvoicePostage\Index.cshtml" />
     <Content Include="Views\InvoiceRegister\Create.cshtml" />
     <Content Include="Views\InvoiceRegister\Delete.cshtml" />
     <Content Include="Views\InvoiceRegister\Details.cshtml" />
@@ -229,6 +224,11 @@
     <Content Include="Views\SIM\Details.cshtml" />
     <Content Include="Views\SIM\Edit.cshtml" />
     <Content Include="Views\SIM\Index.cshtml" />
+    <Content Include="Views\InvoicePostage\Create.cshtml" />
+    <Content Include="Views\InvoicePostage\Delete.cshtml" />
+    <Content Include="Views\InvoicePostage\Details.cshtml" />
+    <Content Include="Views\InvoicePostage\Edit.cshtml" />
+    <Content Include="Views\InvoicePostage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

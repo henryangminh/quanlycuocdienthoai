@@ -14,7 +14,8 @@ namespace quanlycuocdienthoai.DAL
             {
                 context.Customers.AddRange(new List<Customer>()
                 {
-                    new Customer(){ CustomerName="Bé Yêu", Address="Số 1 Đường Bé Yêu", DateRegistered=new DateTime(2019,4,1), Email="hippore114@gmail.com", CMND="069123412" }
+                    new Customer(){ CustomerName="Bé Yêu", Address="Số 1 Đường Bé Yêu", DateRegistered=new DateTime(2019,4,1), Email="hippore114@gmail.com", CMND="069123412" },
+                    new Customer(){ CustomerName="Gấu", Address="Số 3 Đường Bé Yêu", DateRegistered=new DateTime(2019,5,1), Email="hotruongnhatminh@gmail.com", CMND="025861398" }
                 });
             }
             context.SaveChanges();
@@ -24,6 +25,8 @@ namespace quanlycuocdienthoai.DAL
                 context.PhoneNumbers.AddRange(new List<PhoneNumber>()
                 {
                     new PhoneNumber() { PhoneNo="0919991167", Status=true},
+                    new PhoneNumber() { PhoneNo="0984861168", Status=true},
+                    new PhoneNumber() { PhoneNo="0523188169", Status=true},
                 });
             }
             context.SaveChanges();

@@ -18,7 +18,8 @@ namespace quanlycuocdienthoai.Controllers
         // GET: InvoicePostage
         public ActionResult Index()
         {
-            return View(db.InvoicePostages.ToList());
+            var invoicePostages = db.InvoicePostages.Include(i => i.PhoneNumberFKNavigation);
+            return View(invoicePostages.ToList());
         }
 
         // GET: InvoicePostage/Details/5
@@ -39,6 +40,7 @@ namespace quanlycuocdienthoai.Controllers
         // GET: InvoicePostage/Create
         public ActionResult Create()
         {
+            ViewBag.PhoneNumberFK = new SelectList(db.PhoneNumbers, "KeyId", "PhoneNo");
             return View();
         }
 
@@ -47,7 +49,7 @@ namespace quanlycuocdienthoai.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "KeyId,Month,Year,PhoneNumberFK,Total,PaidPostage")] InvoicePostage invoicePostage)
+        public ActionResult Create([Bind(Include = "KeyId,PaymentPeriod,PhoneNumberFK,Total,PaidPostage")] InvoicePostage invoicePostage)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +58,7 @@ namespace quanlycuocdienthoai.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.PhoneNumberFK = new SelectList(db.PhoneNumbers, "KeyId", "PhoneNo", invoicePostage.PhoneNumberFK);
             return View(invoicePostage);
         }
 
@@ -71,6 +74,7 @@ namespace quanlycuocdienthoai.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.PhoneNumberFK = new SelectList(db.PhoneNumbers, "KeyId", "PhoneNo", invoicePostage.PhoneNumberFK);
             return View(invoicePostage);
         }
 
@@ -79,7 +83,7 @@ namespace quanlycuocdienthoai.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "KeyId,Month,Year,PhoneNumberFK,Total,PaidPostage")] InvoicePostage invoicePostage)
+        public ActionResult Edit([Bind(Include = "KeyId,PaymentPeriod,PhoneNumberFK,Total,PaidPostage")] InvoicePostage invoicePostage)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +91,7 @@ namespace quanlycuocdienthoai.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.PhoneNumberFK = new SelectList(db.PhoneNumbers, "KeyId", "PhoneNo", invoicePostage.PhoneNumberFK);
             return View(invoicePostage);
         }
 

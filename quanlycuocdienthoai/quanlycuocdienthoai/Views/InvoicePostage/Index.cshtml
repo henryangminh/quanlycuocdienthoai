@@ -7,18 +7,15 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Tạo mới", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Month)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Year)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.PhoneNumberFKNavigation.PhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentPeriod)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Total)
@@ -32,13 +29,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Month)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.PhoneNumberFKNavigation.PhoneNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentPeriod)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Total)
@@ -47,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.PaidPostage)
         </td>
         <td>
-            @Html.ActionLink("Sửa", "Edit", new { id=item.KeyId }) |
-            @Html.ActionLink("Chi tiết", "Details", new { id=item.KeyId }) |
-            @*Html.ActionLink("Delete", "Delete", new { id=item.KeyId })*@
+            @Html.ActionLink("Edit", "Edit", new { id=item.KeyId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.KeyId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.KeyId })
         </td>
     </tr>
 }
