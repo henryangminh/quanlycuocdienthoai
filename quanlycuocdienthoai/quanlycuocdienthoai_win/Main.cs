@@ -21,17 +21,33 @@ namespace quanlycuocdienthoai_win
 
             grvCustomer.CellClick += new DataGridViewCellEventHandler(EditCustomer);
             grvRegister.CellClick += new DataGridViewCellEventHandler(BlockRegister);
+            grvSim.CellClick += new DataGridViewCellEventHandler(BlockSim);
+            tabPostageProject.SelectedIndexChanged += new EventHandler(LoadAll);
 
+            LoadAll();
+        }
+
+        PostageContext db = new PostageContext();
+
+        private void LoadAll()
+        {
             LoadCustomer(db.Customers.ToList());
             LoadRegister(db.InvoiceRegisters.ToList());
             LoadPhoneNumber(db.PhoneNumbers.ToList());
+            LoadSim(db.SIMs.ToList());
 
             GetComboboxPhoneNumber(cbxRegisterPhoneNumber, true);
             GetComboboxPhoneNumber(cbxRegisterPhoneNumberSearch, false);
             GetComboboxPhoneNumber(cbxViewPhoneNumberPhoneNoSearch, false);
+            GetComboboxPhoneNumber(cbxSimPhoneNumberSearch, false);
+            GetComboboxPhoneNumber(cbxSimPhoneNumber, false);
+            GetComboboxActiveSim(cbxSimActive, GetActiveSim());
         }
 
-        PostageContext db = new PostageContext();
+        private void LoadAll(object sender, EventArgs e)
+        {
+            LoadAll();
+        }
 
         private void ClearDataGridView(DataGridView dataGridView)
         {
@@ -122,24 +138,28 @@ namespace quanlycuocdienthoai_win
                 txtCustomerEmail.Text = "";
                 txtCustomerDateRegister.Text = "";
 
-                ClearDataGridView(grvCustomer);
                 LoadCustomer(db.Customers.ToList());
             }
         }
 
         private void LoadCustomer(Customer customer)
         {
-            int n = grvCustomer.Rows.Add();
-            grvCustomer.Rows[n].Cells[0].Value = customer.KeyId;
-            grvCustomer.Rows[n].Cells[1].Value = customer.CustomerName;
-            grvCustomer.Rows[n].Cells[2].Value = customer.CMND;
-            grvCustomer.Rows[n].Cells[3].Value = customer.Address;
-            grvCustomer.Rows[n].Cells[4].Value = customer.Email;
-            grvCustomer.Rows[n].Cells[5].Value = customer.DateRegistered;
+            if(customer!=null)
+            {
+                int n = grvCustomer.Rows.Add();
+                grvCustomer.Rows[n].Cells[0].Value = customer.KeyId;
+                grvCustomer.Rows[n].Cells[1].Value = customer.CustomerName;
+                grvCustomer.Rows[n].Cells[2].Value = customer.CMND;
+                grvCustomer.Rows[n].Cells[3].Value = customer.Address;
+                grvCustomer.Rows[n].Cells[4].Value = customer.Email;
+                grvCustomer.Rows[n].Cells[5].Value = customer.DateRegistered;
+            }
         }
 
         private void LoadCustomer(List<Customer> customers)
         {
+            ClearDataGridView(grvCustomer);
+
             foreach (var customer in customers)
             {
                 LoadCustomer(customer);
@@ -200,7 +220,6 @@ namespace quanlycuocdienthoai_win
                 txtEditCustomerEmail.Text = "";
                 txtEditCustomerDateRegister.Text = "";
 
-                ClearDataGridView(grvCustomer);
                 LoadCustomer(db.Customers.ToList());
             }
         }
@@ -217,6 +236,154 @@ namespace quanlycuocdienthoai_win
             int idPhoneNo = GetKeyIdOfPhoneNumber(number);
             return db.SIMs.Where(x => x.PhoneNumberFK == idPhoneNo && x.Status == true).FirstOrDefault();
         }
+
+        private void btnAddSim_Click(object sender, EventArgs e)
+        {
+            decimal quantity = nudViewSimQuantity.Value;
+
+            for (decimal i = 0; i < quantity; i++)
+            {
+                SIM sim = new SIM();
+                sim.KeyId = 0;
+                sim.PhoneNumberFK = null;
+
+                db.SIMs.Add(sim);
+            }
+
+            db.SaveChanges();
+
+            LoadSim(db.SIMs.ToList());
+            GetComboboxActiveSim(cbxSimActive, GetActiveSim());
+        }
+
+        private void LoadSim(SIM sim)
+        {
+            if (sim != null)
+            {
+                int n = grvSim.Rows.Add();
+                grvSim.Rows[n].Cells[0].Value = sim.KeyId;
+                grvSim.Rows[n].Cells[1].Value = (sim.PhoneNumberFKNavigation != null) ? sim.PhoneNumberFKNavigation.PhoneNo : "";
+                grvSim.Rows[n].Cells[2].Value = (sim.Status) ? "Đang sử dụng" : (sim.PhoneNumberFK != null) ? "Đã khóa" : "Chưa được sử dụng";
+            }
+        }
+
+        private void LoadSim(List<SIM> sims)
+        {
+            ClearDataGridView(grvSim);
+
+            foreach (var sim in sims)
+            {
+                LoadSim(sim);
+            }
+        }
+
+        private List<SIM> GetActiveSim()
+        {
+            return db.SIMs.Where(x => (x.Status == false && x.PhoneNumberFK == null)).ToList();
+        }
+
+        private void GetComboboxActiveSim(ComboBox comboBox, List<SIM> sims)
+        {
+            comboBox.Items.Clear();
+
+            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+
+            foreach (var sim in sims)
+            {
+                comboBox.Items.Add(sim.KeyId);
+                collection.Add(sim.KeyId.ToString());
+            }
+
+            comboBox.AutoCompleteCustomSource = collection;
+        }
+
+        private bool CheckAssignSIM(string sim, string phoneNumber)
+        {
+            if (sim == "" || phoneNumber == "")
+            {
+                MessageBox.Show("Không được để trống");
+                return false;
+            }
+
+            if (db.SIMs.Find(Convert.ToInt32(sim)) == null || db.PhoneNumbers.Find(GetKeyIdOfPhoneNumber(phoneNumber)) == null)
+            {
+                MessageBox.Show("Sim hoặc SĐT đã nhập không có trong CSDL");
+                return false;
+            }
+
+            if(GetTheLastestSIM(phoneNumber) != null)
+            {
+                MessageBox.Show("SĐT này đã có SIM. Muốn chuyển SIM, hãy khóa SIM hiện tại của SĐT này");
+                return false;
+            }
+            return true;
+        }
+
+        private void btnViewSimAssign_Click(object sender, EventArgs e)
+        {
+            if (CheckAssignSIM(cbxSimActive.Text, cbxSimPhoneNumberSearch.Text))
+            {
+                SIM sim = db.SIMs.Find(Convert.ToInt32(cbxSimActive.Text));
+                sim.PhoneNumberFK = GetKeyIdOfPhoneNumber(cbxSimPhoneNumberSearch.Text);
+                sim.Status = true;
+
+                Update(sim);
+                db.SaveChanges();
+
+                LoadSim(db.SIMs.ToList());
+
+                cbxSimActive.SelectedIndex = -1;
+                cbxSimPhoneNumberSearch.SelectedIndex = -1;
+
+                cbxSimActive.Text = "";
+                cbxSimPhoneNumberSearch.Text = "";
+
+                GetComboboxPhoneNumber(cbxSimPhoneNumberSearch, false);
+                GetComboboxActiveSim(cbxSimActive, GetActiveSim());
+            }
+        }
+
+        private void BlockSim(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dataGridView = sender as DataGridView;
+
+            if (dataGridView != null)
+            {
+                if (e.ColumnIndex == 3)
+                {
+                    int rowIndex = e.RowIndex;
+
+                    if (!db.SIMs.Find(Convert.ToInt32(grvSim.Rows[rowIndex].Cells[0].Value.ToString())).Status)
+                    {
+                        MessageBox.Show("SIM này đã được khóa hoặc chưa có SĐT");
+                        return;
+                    }
+
+                    if (DialogResult.Yes == MessageBox.Show("Bạn có muốn khóa SIM này", "", MessageBoxButtons.YesNo))
+                    {
+                        SIM sim = db.SIMs.Find(Convert.ToInt32(grvSim.Rows[rowIndex].Cells[0].Value.ToString()));
+                        sim.Status = false;
+
+                        Update(sim);
+                        db.SaveChanges();
+
+                        LoadSim(db.SIMs.ToList());
+                    }
+                }
+            }
+        }
+
+        private List<SIM> GetSimByPhoneNumber(string number)
+        {
+            return db.SIMs.Where(p => p.PhoneNumberFKNavigation.PhoneNo == number).ToList();
+        }
+
+        private void btnSimSearch_Click(object sender, EventArgs e)
+        {
+            var sims = GetSimByPhoneNumber(cbxSimPhoneNumber.Text);
+
+            LoadSim(sims);
+        }
         #endregion
 
         #region Phone Number
@@ -227,7 +394,7 @@ namespace quanlycuocdienthoai_win
 
         private PhoneNumber GetByPhoneNumber(string number)
         {
-            return db.PhoneNumbers.Where(p => p.PhoneNo.Contains(number)).FirstOrDefault();
+            return db.PhoneNumbers.Where(p => p.PhoneNo  == number).FirstOrDefault();
         }
 
         private bool CheckAddPhoneNumber(string phoneNumber)
@@ -261,14 +428,19 @@ namespace quanlycuocdienthoai_win
 
         private void LoadPhoneNumber(PhoneNumber number)
         {
-            int n = grvPhoneNumber.Rows.Add();
-            grvPhoneNumber.Rows[n].Cells[0].Value = number.KeyId;
-            grvPhoneNumber.Rows[n].Cells[1].Value = number.PhoneNo;
-            grvPhoneNumber.Rows[n].Cells[2].Value = (number.Status) ? "Đang được sử dụng" : "Đang trống";
+            if (number != null)
+            {
+                int n = grvPhoneNumber.Rows.Add();
+                grvPhoneNumber.Rows[n].Cells[0].Value = number.KeyId;
+                grvPhoneNumber.Rows[n].Cells[1].Value = number.PhoneNo;
+                grvPhoneNumber.Rows[n].Cells[2].Value = (number.Status) ? "Đang được sử dụng" : "Đang trống";
+            }
         }
 
         private void LoadPhoneNumber(List<PhoneNumber> numbers)
         {
+            ClearDataGridView(grvPhoneNumber);
+
             foreach (var number in numbers)
             {
                 LoadPhoneNumber(number);
@@ -289,7 +461,6 @@ namespace quanlycuocdienthoai_win
 
                 MessageBox.Show("Thêm thành công");
 
-                ClearDataGridView(grvPhoneNumber);
                 LoadPhoneNumber(db.PhoneNumbers.ToList());
                 txtPhoneNumberPhoneNo.Text = "";
             }
@@ -312,6 +483,8 @@ namespace quanlycuocdienthoai_win
         /// <param name="inactive">true: những SĐT nào chưa có ai SD, false: tất cả SĐT</param>
         private void GetComboboxPhoneNumber(ComboBox comboBox, bool inactive)
         {
+            comboBox.Items.Clear();
+
             IQueryable<PhoneNumber> numbers = db.PhoneNumbers;
 
             if (inactive)
@@ -384,6 +557,12 @@ namespace quanlycuocdienthoai_win
                 MessageBox.Show("Số điện thoại này chưa có SIM");
                 return false;
             }
+
+            if (GetByPhoneNumber(phoneNo).Status)
+            {
+                MessageBox.Show("Số điện thoại này đang được sử dụng");
+                return false;
+            }
             return true;
         }
 
@@ -408,36 +587,41 @@ namespace quanlycuocdienthoai_win
                 db.SaveChanges();
 
                 MessageBox.Show("Đăng ký thành công");
-                cbxRegisterPhoneNumber.Items.Clear();
                 GetComboboxPhoneNumber(cbxRegisterPhoneNumber, true);
 
                 cbxRegisterPhoneNumber.SelectedIndex = -1;
+                cbxRegisterPhoneNumber.Text = "";
                 txtRegisterCost.Text = "";
+                txtRegisterCustomer.Text = "";
                 lblRegisterCustomerKeyId.Text = "xxx";
                 lblRegisterCustomerName.Text = "xxx";
                 lblRegisterIdentity.Text = "xxx";
                 lblRegisterAddress.Text = "xxx";
                 lblRegisterEmail.Text = "xxx";
 
-                ClearDataGridView(grvRegister);
                 LoadRegister(db.InvoiceRegisters.ToList());
             }
         }
 
         private void LoadRegister(InvoiceRegister register)
         {
-            int n = grvRegister.Rows.Add();
-            grvRegister.Rows[n].Cells[0].Value = register.KeyId;
-            grvRegister.Rows[n].Cells[1].Value = register.CustomerFKNavigation.CustomerName;
-            grvRegister.Rows[n].Cells[2].Value = register.CustomerFKNavigation.CMND;
-            grvRegister.Rows[n].Cells[3].Value = register.PhoneNumberFKNavigation.PhoneNo;
-            grvRegister.Rows[n].Cells[4].Value = register.DateRegisted;
-            grvRegister.Rows[n].Cells[5].Value = register.CostRegister;
-            grvRegister.Rows[n].Cells[6].Value = (register.Status) ? "Bình thường" : "Khóa";
+            if (register != null)
+            {
+                int n = grvRegister.Rows.Add();
+                grvRegister.Rows[n].Cells[0].Value = register.KeyId;
+                grvRegister.Rows[n].Cells[1].Value = register.CustomerFKNavigation.CustomerName;
+                grvRegister.Rows[n].Cells[2].Value = register.CustomerFKNavigation.CMND;
+                grvRegister.Rows[n].Cells[3].Value = register.PhoneNumberFKNavigation.PhoneNo;
+                grvRegister.Rows[n].Cells[4].Value = register.DateRegisted;
+                grvRegister.Rows[n].Cells[5].Value = register.CostRegister;
+                grvRegister.Rows[n].Cells[6].Value = (register.Status) ? "Bình thường" : "Khóa";
+            }
         }
 
         private void LoadRegister(List<InvoiceRegister> registers)
         {
+            ClearDataGridView(grvRegister);
+
             foreach (var register in registers)
             {
                 LoadRegister(register);
@@ -469,8 +653,9 @@ namespace quanlycuocdienthoai_win
                             Update(register);
                             db.SaveChanges();
 
-                            cbxRegisterPhoneNumber.Items.Clear();
                             GetComboboxPhoneNumber(cbxRegisterPhoneNumber, true);
+
+                            LoadRegister(db.InvoiceRegisters.ToList());
                         }
                     }
                     else
@@ -479,6 +664,24 @@ namespace quanlycuocdienthoai_win
                     }
                 }
             }
+        }
+
+        private void btnRegisterCustomerSearch_Click(object sender, EventArgs e)
+        {
+            IQueryable<InvoiceRegister> registers = db.InvoiceRegisters;
+
+            if (txtRegisterCustomerSearch.Text != "")
+            {
+                int customerId = GetCustomerByCMND(txtRegisterCustomerSearch.Text).KeyId;
+                registers = registers.Where(x => x.CustomerFK == customerId);
+            }
+            if (cbxRegisterPhoneNumberSearch.Text != "")
+            {
+                int numberId = GetByPhoneNumber(cbxRegisterPhoneNumberSearch.Text).KeyId;
+                registers = registers.Where(x => x.PhoneNumberFK == numberId);
+            }
+
+            LoadRegister(registers.ToList());
         }
         #endregion
     }
