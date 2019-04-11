@@ -140,6 +140,23 @@
             this.txtPhoneNumberPhoneNo = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label47 = new System.Windows.Forms.Label();
+            this.txtPostageCost = new System.Windows.Forms.TextBox();
+            this.grvAddHourMark = new System.Windows.Forms.DataGridView();
+            this.txtViewFromHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtViewToHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtViewPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnViewDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label46 = new System.Windows.Forms.Label();
+            this.nudSecond = new System.Windows.Forms.NumericUpDown();
+            this.label45 = new System.Windows.Forms.Label();
+            this.nudMinute = new System.Windows.Forms.NumericUpDown();
+            this.label44 = new System.Windows.Forms.Label();
+            this.nudHour = new System.Windows.Forms.NumericUpDown();
+            this.label43 = new System.Windows.Forms.Label();
+            this.btnAddHourMark = new System.Windows.Forms.Button();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.tabPostageProject.SuspendLayout();
             this.tabPageCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomer)).BeginInit();
@@ -150,6 +167,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudViewSimQuantity)).BeginInit();
             this.tabPagePhoneNumber.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhoneNumber)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvAddHourMark)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSecond)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinute)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHour)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPostageProject
@@ -1255,6 +1277,19 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label47);
+            this.tabPage4.Controls.Add(this.txtPostageCost);
+            this.tabPage4.Controls.Add(this.grvAddHourMark);
+            this.tabPage4.Controls.Add(this.label46);
+            this.tabPage4.Controls.Add(this.nudSecond);
+            this.tabPage4.Controls.Add(this.label45);
+            this.tabPage4.Controls.Add(this.nudMinute);
+            this.tabPage4.Controls.Add(this.label44);
+            this.tabPage4.Controls.Add(this.nudHour);
+            this.tabPage4.Controls.Add(this.label43);
+            this.tabPage4.Controls.Add(this.btnAddHourMark);
+            this.tabPage4.Controls.Add(this.label41);
+            this.tabPage4.Controls.Add(this.label42);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -1262,6 +1297,167 @@
             this.tabPage4.TabIndex = 6;
             this.tabPage4.Text = "Giá cước";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(10, 107);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(51, 13);
+            this.label47.TabIndex = 53;
+            this.label47.Text = "Cước phí";
+            // 
+            // txtPostageCost
+            // 
+            this.txtPostageCost.Location = new System.Drawing.Point(80, 104);
+            this.txtPostageCost.Name = "txtPostageCost";
+            this.txtPostageCost.Size = new System.Drawing.Size(202, 20);
+            this.txtPostageCost.TabIndex = 52;
+            // 
+            // grvAddHourMark
+            // 
+            this.grvAddHourMark.AllowUserToAddRows = false;
+            this.grvAddHourMark.AllowUserToDeleteRows = false;
+            this.grvAddHourMark.AllowUserToOrderColumns = true;
+            this.grvAddHourMark.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvAddHourMark.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtViewFromHour,
+            this.txtViewToHour,
+            this.txtViewPrice,
+            this.btnViewDelete});
+            this.grvAddHourMark.Location = new System.Drawing.Point(400, 6);
+            this.grvAddHourMark.Name = "grvAddHourMark";
+            this.grvAddHourMark.Size = new System.Drawing.Size(446, 150);
+            this.grvAddHourMark.TabIndex = 51;
+            // 
+            // txtViewFromHour
+            // 
+            this.txtViewFromHour.HeaderText = "Từ giờ";
+            this.txtViewFromHour.Name = "txtViewFromHour";
+            this.txtViewFromHour.ReadOnly = true;
+            // 
+            // txtViewToHour
+            // 
+            this.txtViewToHour.HeaderText = "Đến giờ";
+            this.txtViewToHour.Name = "txtViewToHour";
+            this.txtViewToHour.ReadOnly = true;
+            // 
+            // txtViewPrice
+            // 
+            this.txtViewPrice.HeaderText = "Giá";
+            this.txtViewPrice.Name = "txtViewPrice";
+            // 
+            // btnViewDelete
+            // 
+            this.btnViewDelete.HeaderText = "";
+            this.btnViewDelete.Name = "btnViewDelete";
+            this.btnViewDelete.Text = "Xóa";
+            this.btnViewDelete.UseColumnTextForButtonValue = true;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(285, 80);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(28, 13);
+            this.label46.TabIndex = 50;
+            this.label46.Text = "Giây";
+            // 
+            // nudSecond
+            // 
+            this.nudSecond.Location = new System.Drawing.Point(238, 76);
+            this.nudSecond.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.nudSecond.Name = "nudSecond";
+            this.nudSecond.Size = new System.Drawing.Size(44, 20);
+            this.nudSecond.TabIndex = 49;
+            this.nudSecond.ValueChanged += new System.EventHandler(this.nudSecond_ValueChanged);
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(203, 80);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(29, 13);
+            this.label45.TabIndex = 48;
+            this.label45.Text = "Phút";
+            // 
+            // nudMinute
+            // 
+            this.nudMinute.Location = new System.Drawing.Point(156, 76);
+            this.nudMinute.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.nudMinute.Name = "nudMinute";
+            this.nudMinute.Size = new System.Drawing.Size(44, 20);
+            this.nudMinute.TabIndex = 47;
+            this.nudMinute.ValueChanged += new System.EventHandler(this.nudMinute_ValueChanged);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(127, 80);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(23, 13);
+            this.label44.TabIndex = 46;
+            this.label44.Text = "Giờ";
+            // 
+            // nudHour
+            // 
+            this.nudHour.Location = new System.Drawing.Point(80, 76);
+            this.nudHour.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.nudHour.Name = "nudHour";
+            this.nudHour.Size = new System.Drawing.Size(44, 20);
+            this.nudHour.TabIndex = 45;
+            this.nudHour.ValueChanged += new System.EventHandler(this.nudHour_ValueChanged);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(10, 80);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(45, 13);
+            this.label43.TabIndex = 44;
+            this.label43.Text = "Mốc giờ";
+            // 
+            // btnAddHourMark
+            // 
+            this.btnAddHourMark.Location = new System.Drawing.Point(286, 102);
+            this.btnAddHourMark.Name = "btnAddHourMark";
+            this.btnAddHourMark.Size = new System.Drawing.Size(75, 23);
+            this.btnAddHourMark.TabIndex = 43;
+            this.btnAddHourMark.Text = "Thêm";
+            this.btnAddHourMark.UseVisualStyleBackColor = true;
+            this.btnAddHourMark.Click += new System.EventHandler(this.btnAddHourMark_Click);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(8, 45);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(106, 25);
+            this.label41.TabIndex = 27;
+            this.label41.Text = "Thêm mới";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label42.Location = new System.Drawing.Point(6, 3);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(147, 38);
+            this.label42.TabIndex = 26;
+            this.label42.Text = "Giá cước";
             // 
             // Main
             // 
@@ -1285,6 +1481,12 @@
             this.tabPagePhoneNumber.ResumeLayout(false);
             this.tabPagePhoneNumber.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhoneNumber)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grvAddHourMark)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSecond)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinute)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHour)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1403,6 +1605,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewSimStatus;
         private System.Windows.Forms.DataGridViewButtonColumn btnViewSimBlock;
         private System.Windows.Forms.Button btnRegisterCustomerSearch;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Button btnAddHourMark;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.NumericUpDown nudSecond;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.NumericUpDown nudMinute;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.NumericUpDown nudHour;
+        private System.Windows.Forms.DataGridView grvAddHourMark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewFromHour;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewToHour;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewPrice;
+        private System.Windows.Forms.DataGridViewButtonColumn btnViewDelete;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.TextBox txtPostageCost;
     }
 }
 

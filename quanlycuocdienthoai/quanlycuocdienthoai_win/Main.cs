@@ -22,6 +22,8 @@ namespace quanlycuocdienthoai_win
             grvCustomer.CellClick += new DataGridViewCellEventHandler(EditCustomer);
             grvRegister.CellClick += new DataGridViewCellEventHandler(BlockRegister);
             grvSim.CellClick += new DataGridViewCellEventHandler(BlockSim);
+            grvAddHourMark.CellClick += new DataGridViewCellEventHandler(DeleteHourMark);
+            grvAddHourMark.CellEndEdit += new DataGridViewCellEventHandler(ChangePostageCost);
             tabPostageProject.SelectedIndexChanged += new EventHandler(LoadAll);
 
             LoadAll();
@@ -57,6 +59,19 @@ namespace quanlycuocdienthoai_win
         private void Update(Object T)
         {
             db.Entry(T).State = EntityState.Modified;
+        }
+
+        private void TimeSpanPickerChangeValue(NumericUpDown numericUpDown)
+        {
+            if (numericUpDown.Value < numericUpDown.Minimum)
+            {
+                numericUpDown.Value = numericUpDown.Minimum;
+            }
+
+            if (numericUpDown.Value > numericUpDown.Maximum)
+            {
+                numericUpDown.Value = numericUpDown.Maximum;
+            }
         }
 
         /// <summary>
@@ -682,6 +697,129 @@ namespace quanlycuocdienthoai_win
             }
 
             LoadRegister(registers.ToList());
+        }
+        #endregion
+
+        #region Postage
+
+        public static List<PostageDetail> HourMarks = new List<PostageDetail>();
+
+        private void DeleteHourMark(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3 && e.RowIndex >= 0)
+            {
+                int rowIndex = e.RowIndex;
+                HourMarks.RemoveAt(rowIndex);
+
+                LoadAddHourMarks();
+            }
+        }
+
+        private void nudHour_ValueChanged(object sender, EventArgs e)
+        {
+            TimeSpanPickerChangeValue(nudHour);
+        }
+
+        private void nudMinute_ValueChanged(object sender, EventArgs e)
+        {
+            TimeSpanPickerChangeValue(nudMinute);
+        }
+
+        private void nudSecond_ValueChanged(object sender, EventArgs e)
+        {
+            TimeSpanPickerChangeValue(nudSecond);
+        }
+
+        private void LoadAddHourMarks()
+        {
+            ClearDataGridView(grvAddHourMark);
+
+            if (HourMarks.Count() > 1)
+            {
+                for (int i = 0; i < HourMarks.Count - 1; i++)
+                {
+                    int n = grvAddHourMark.Rows.Add();
+                    grvAddHourMark.Rows[n].Cells[0].Value = HourMarks[i].HourMark.ToString();
+                    grvAddHourMark.Rows[n].Cells[1].Value = HourMarks[i + 1].HourMark.ToString();
+                    grvAddHourMark.Rows[n].Cells[2].Value = HourMarks[i].Cost.ToString();
+                }
+            }
+            int m = grvAddHourMark.Rows.Add();
+            grvAddHourMark.Rows[m].Cells[0].Value = HourMarks[HourMarks.Count - 1].HourMark.ToString();
+            grvAddHourMark.Rows[m].Cells[1].Value = HourMarks[0].HourMark.ToString();
+            grvAddHourMark.Rows[m].Cells[2].Value = HourMarks[HourMarks.Count - 1].Cost.ToString();
+        }
+
+        private bool CheckAddPostageDetails(string cost)
+        {
+            if (cost == "")
+            {
+                MessageBox.Show("Không được để trống");
+                return false;
+            }
+
+            if (!CheckDigital(cost))
+            {
+                MessageBox.Show("Cước phí phải là số");
+                return false;
+            }
+            return true;
+        }
+
+        private bool CheckAddPostageDetails(string cost, TimeSpan timeSpan)
+        {
+            if (!CheckAddPostageDetails(cost))
+            {
+                return false;
+            }
+
+            if (HourMarks.Count > 0 && HourMarks.Where(p => p.HourMark == timeSpan).ToList().Count > 0)
+            {
+                MessageBox.Show("Mốc giờ này đã có");
+                return false;
+            }
+            return true;
+        }
+
+        private void ChangePostageCost(object sender, DataGridViewCellEventArgs e)
+        {
+            ChangePostageCost(grvAddHourMark, e.RowIndex);
+        }
+
+        /// <summary>
+        /// Đổi giá cước khi đang thêm
+        /// </summary>
+        /// <param name="dataGridView">DataGridView</param>
+        /// <param name="n">phần tử thứ n</param>
+        private void ChangePostageCost(DataGridView dataGridView, int n)
+        {
+            if (CheckAddPostageDetails(dataGridView.Rows[n].Cells[2].Value.ToString()))
+            {
+                HourMarks[n].Cost = Convert.ToInt32(dataGridView.Rows[n].Cells[2].Value.ToString());
+            }
+        }
+
+        private void btnAddHourMark_Click(object sender, EventArgs e)
+        {
+            TimeSpan HourMark = new TimeSpan((int)nudHour.Value, (int)nudMinute.Value, (int)nudSecond.Value);
+            if (CheckAddPostageDetails(txtPostageCost.Text, HourMark))
+            {
+                int n = db.Postages.ToList().Count + 1;
+                PostageDetail postageDetail = new PostageDetail();
+                postageDetail.PostageFK = n;
+                postageDetail.HourMark = HourMark;
+                postageDetail.Cost = Convert.ToInt32(txtPostageCost.Text);
+
+                HourMarks.Add(postageDetail);
+                HourMarks = HourMarks.OrderBy(p => p.HourMark).ToList();
+
+                nudHour.Value = nudHour.Minimum;
+                nudMinute.Value = nudMinute.Minimum;
+                nudSecond.Value = nudSecond.Minimum;
+                txtPostageCost.Text = "";
+
+                LoadAddHourMarks();
+            }
         }
         #endregion
     }
