@@ -157,11 +157,35 @@
             this.btnAddHourMark = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
+            this.grvPostage = new System.Windows.Forms.DataGridView();
+            this.txtViewPostageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnViewPostage = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.lblPostageId = new System.Windows.Forms.Label();
+            this.grvPostageDetails = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddPostage = new System.Windows.Forms.Button();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.nudNumberOfRecord = new System.Windows.Forms.NumericUpDown();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.nudPhoneDetailMonth = new System.Windows.Forms.NumericUpDown();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.nudPhoneDetailYear = new System.Windows.Forms.NumericUpDown();
+            this.btnGenerateRandomDate = new System.Windows.Forms.Button();
             this.tabPostageProject.SuspendLayout();
             this.tabPageCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomer)).BeginInit();
             this.tabPageInvoiceRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvRegister)).BeginInit();
+            this.tabPagePhoneCallDetail.SuspendLayout();
             this.tabPageSIM.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvSim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudViewSimQuantity)).BeginInit();
@@ -172,6 +196,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudSecond)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHour)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPostage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPostageDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfRecord)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailYear)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPostageProject
@@ -895,6 +924,16 @@
             // 
             // tabPagePhoneCallDetail
             // 
+            this.tabPagePhoneCallDetail.Controls.Add(this.btnGenerateRandomDate);
+            this.tabPagePhoneCallDetail.Controls.Add(this.label57);
+            this.tabPagePhoneCallDetail.Controls.Add(this.nudPhoneDetailYear);
+            this.tabPagePhoneCallDetail.Controls.Add(this.label56);
+            this.tabPagePhoneCallDetail.Controls.Add(this.nudPhoneDetailMonth);
+            this.tabPagePhoneCallDetail.Controls.Add(this.label55);
+            this.tabPagePhoneCallDetail.Controls.Add(this.label54);
+            this.tabPagePhoneCallDetail.Controls.Add(this.nudNumberOfRecord);
+            this.tabPagePhoneCallDetail.Controls.Add(this.label53);
+            this.tabPagePhoneCallDetail.Controls.Add(this.label52);
             this.tabPagePhoneCallDetail.Location = new System.Drawing.Point(4, 22);
             this.tabPagePhoneCallDetail.Name = "tabPagePhoneCallDetail";
             this.tabPagePhoneCallDetail.Padding = new System.Windows.Forms.Padding(3);
@@ -1277,6 +1316,14 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label51);
+            this.tabPage4.Controls.Add(this.label50);
+            this.tabPage4.Controls.Add(this.btnAddPostage);
+            this.tabPage4.Controls.Add(this.grvPostageDetails);
+            this.tabPage4.Controls.Add(this.lblPostageId);
+            this.tabPage4.Controls.Add(this.label49);
+            this.tabPage4.Controls.Add(this.label48);
+            this.tabPage4.Controls.Add(this.grvPostage);
             this.tabPage4.Controls.Add(this.label47);
             this.tabPage4.Controls.Add(this.txtPostageCost);
             this.tabPage4.Controls.Add(this.grvAddHourMark);
@@ -1433,9 +1480,9 @@
             // 
             this.btnAddHourMark.Location = new System.Drawing.Point(286, 102);
             this.btnAddHourMark.Name = "btnAddHourMark";
-            this.btnAddHourMark.Size = new System.Drawing.Size(75, 23);
+            this.btnAddHourMark.Size = new System.Drawing.Size(97, 23);
             this.btnAddHourMark.TabIndex = 43;
-            this.btnAddHourMark.Text = "Thêm";
+            this.btnAddHourMark.Text = "Thêm mốc giờ";
             this.btnAddHourMark.UseVisualStyleBackColor = true;
             this.btnAddHourMark.Click += new System.EventHandler(this.btnAddHourMark_Click);
             // 
@@ -1459,6 +1506,255 @@
             this.label42.TabIndex = 26;
             this.label42.Text = "Giá cước";
             // 
+            // grvPostage
+            // 
+            this.grvPostage.AllowUserToAddRows = false;
+            this.grvPostage.AllowUserToDeleteRows = false;
+            this.grvPostage.AllowUserToOrderColumns = true;
+            this.grvPostage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvPostage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtViewPostageId,
+            this.btnViewPostage});
+            this.grvPostage.Location = new System.Drawing.Point(13, 241);
+            this.grvPostage.Name = "grvPostage";
+            this.grvPostage.ReadOnly = true;
+            this.grvPostage.Size = new System.Drawing.Size(348, 253);
+            this.grvPostage.TabIndex = 54;
+            // 
+            // txtViewPostageId
+            // 
+            this.txtViewPostageId.HeaderText = "KeyId";
+            this.txtViewPostageId.Name = "txtViewPostageId";
+            this.txtViewPostageId.ReadOnly = true;
+            // 
+            // btnViewPostage
+            // 
+            this.btnViewPostage.HeaderText = "";
+            this.btnViewPostage.Name = "btnViewPostage";
+            this.btnViewPostage.ReadOnly = true;
+            this.btnViewPostage.Text = "Xem Chi Tiết";
+            this.btnViewPostage.UseColumnTextForButtonValue = true;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(8, 202);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(124, 25);
+            this.label48.TabIndex = 56;
+            this.label48.Text = "Xem chi tiết";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(376, 214);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(43, 13);
+            this.label49.TabIndex = 57;
+            this.label49.Text = "Key Id: ";
+            // 
+            // lblPostageId
+            // 
+            this.lblPostageId.AutoSize = true;
+            this.lblPostageId.Location = new System.Drawing.Point(425, 214);
+            this.lblPostageId.Name = "lblPostageId";
+            this.lblPostageId.Size = new System.Drawing.Size(22, 13);
+            this.lblPostageId.TabIndex = 58;
+            this.lblPostageId.Text = "xxx";
+            // 
+            // grvPostageDetails
+            // 
+            this.grvPostageDetails.AllowUserToAddRows = false;
+            this.grvPostageDetails.AllowUserToDeleteRows = false;
+            this.grvPostageDetails.AllowUserToOrderColumns = true;
+            this.grvPostageDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvPostageDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.grvPostageDetails.Location = new System.Drawing.Point(367, 241);
+            this.grvPostageDetails.Name = "grvPostageDetails";
+            this.grvPostageDetails.ReadOnly = true;
+            this.grvPostageDetails.Size = new System.Drawing.Size(602, 253);
+            this.grvPostageDetails.TabIndex = 59;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Từ giờ";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Đến giờ";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Giá";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // btnAddPostage
+            // 
+            this.btnAddPostage.Location = new System.Drawing.Point(865, 132);
+            this.btnAddPostage.Name = "btnAddPostage";
+            this.btnAddPostage.Size = new System.Drawing.Size(89, 23);
+            this.btnAddPostage.TabIndex = 60;
+            this.btnAddPostage.Text = "Thêm giá cước";
+            this.btnAddPostage.UseVisualStyleBackColor = true;
+            this.btnAddPostage.Click += new System.EventHandler(this.btnAddPostage_Click);
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(45, 137);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(316, 13);
+            this.label50.TabIndex = 61;
+            this.label50.Text = "(Thêm các mốc giờ và giá sau đó chọn Thêm giá cước để lưu lại)";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(503, 159);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(254, 13);
+            this.label51.TabIndex = 62;
+            this.label51.Text = "(Nếu chỉ có 1 mốc giờ thì cả ngày chỉ có 1 giá cước)";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label52.Location = new System.Drawing.Point(3, 3);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(249, 38);
+            this.label52.TabIndex = 2;
+            this.label52.Text = "Chi tiết cuộc gọi";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(6, 41);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(227, 25);
+            this.label53.TabIndex = 3;
+            this.label53.Text = "Tạo ngẫu nhiên CTCG";
+            // 
+            // nudNumberOfRecord
+            // 
+            this.nudNumberOfRecord.Location = new System.Drawing.Point(89, 80);
+            this.nudNumberOfRecord.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudNumberOfRecord.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNumberOfRecord.Name = "nudNumberOfRecord";
+            this.nudNumberOfRecord.Size = new System.Drawing.Size(64, 20);
+            this.nudNumberOfRecord.TabIndex = 4;
+            this.nudNumberOfRecord.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNumberOfRecord.ValueChanged += new System.EventHandler(this.nudNumberOfRecord_ValueChanged);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(8, 82);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(47, 13);
+            this.label54.TabIndex = 20;
+            this.label54.Text = "Số dòng";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(8, 110);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(76, 13);
+            this.label55.TabIndex = 21;
+            this.label55.Text = "Kỳ thanh toán:";
+            // 
+            // nudPhoneDetailMonth
+            // 
+            this.nudPhoneDetailMonth.Location = new System.Drawing.Point(128, 108);
+            this.nudPhoneDetailMonth.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.nudPhoneDetailMonth.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudPhoneDetailMonth.Name = "nudPhoneDetailMonth";
+            this.nudPhoneDetailMonth.Size = new System.Drawing.Size(47, 20);
+            this.nudPhoneDetailMonth.TabIndex = 22;
+            this.nudPhoneDetailMonth.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.nudPhoneDetailMonth.ValueChanged += new System.EventHandler(this.nudPhoneDetailMonth_ValueChanged);
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(86, 111);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(38, 13);
+            this.label56.TabIndex = 23;
+            this.label56.Text = "Tháng";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(181, 111);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(29, 13);
+            this.label57.TabIndex = 25;
+            this.label57.Text = "Năm";
+            // 
+            // nudPhoneDetailYear
+            // 
+            this.nudPhoneDetailYear.Location = new System.Drawing.Point(211, 108);
+            this.nudPhoneDetailYear.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudPhoneDetailYear.Name = "nudPhoneDetailYear";
+            this.nudPhoneDetailYear.Size = new System.Drawing.Size(47, 20);
+            this.nudPhoneDetailYear.TabIndex = 24;
+            this.nudPhoneDetailYear.Value = new decimal(new int[] {
+            2019,
+            0,
+            0,
+            0});
+            this.nudPhoneDetailYear.ValueChanged += new System.EventHandler(this.nudPhoneDetailYear_ValueChanged);
+            // 
+            // btnGenerateRandomDate
+            // 
+            this.btnGenerateRandomDate.Location = new System.Drawing.Point(11, 136);
+            this.btnGenerateRandomDate.Name = "btnGenerateRandomDate";
+            this.btnGenerateRandomDate.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerateRandomDate.TabIndex = 43;
+            this.btnGenerateRandomDate.Text = "Tạo";
+            this.btnGenerateRandomDate.UseVisualStyleBackColor = true;
+            this.btnGenerateRandomDate.Click += new System.EventHandler(this.btnGenerateRandomDate_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1474,6 +1770,8 @@
             this.tabPageInvoiceRegister.ResumeLayout(false);
             this.tabPageInvoiceRegister.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvRegister)).EndInit();
+            this.tabPagePhoneCallDetail.ResumeLayout(false);
+            this.tabPagePhoneCallDetail.PerformLayout();
             this.tabPageSIM.ResumeLayout(false);
             this.tabPageSIM.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvSim)).EndInit();
@@ -1487,6 +1785,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudSecond)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinute)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPostage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPostageDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfRecord)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailYear)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1622,6 +1925,29 @@
         private System.Windows.Forms.DataGridViewButtonColumn btnViewDelete;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TextBox txtPostageCost;
+        private System.Windows.Forms.Label lblPostageId;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.DataGridView grvPostage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewPostageId;
+        private System.Windows.Forms.DataGridViewButtonColumn btnViewPostage;
+        private System.Windows.Forms.DataGridView grvPostageDetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Button btnAddPostage;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.NumericUpDown nudPhoneDetailYear;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.NumericUpDown nudPhoneDetailMonth;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.NumericUpDown nudNumberOfRecord;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Button btnGenerateRandomDate;
     }
 }
 

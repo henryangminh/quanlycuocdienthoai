@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace quanlycuocdienthoai_win
             grvSim.CellClick += new DataGridViewCellEventHandler(BlockSim);
             grvAddHourMark.CellClick += new DataGridViewCellEventHandler(DeleteHourMark);
             grvAddHourMark.CellEndEdit += new DataGridViewCellEventHandler(ChangePostageCost);
+            grvPostage.CellClick += new DataGridViewCellEventHandler(ShowPostageDetail);
             tabPostageProject.SelectedIndexChanged += new EventHandler(LoadAll);
 
             LoadAll();
@@ -37,6 +39,7 @@ namespace quanlycuocdienthoai_win
             LoadRegister(db.InvoiceRegisters.ToList());
             LoadPhoneNumber(db.PhoneNumbers.ToList());
             LoadSim(db.SIMs.ToList());
+            LoadPostage(db.Postages.ToList());
 
             GetComboboxPhoneNumber(cbxRegisterPhoneNumber, true);
             GetComboboxPhoneNumber(cbxRegisterPhoneNumberSearch, false);
@@ -61,7 +64,7 @@ namespace quanlycuocdienthoai_win
             db.Entry(T).State = EntityState.Modified;
         }
 
-        private void TimeSpanPickerChangeValue(NumericUpDown numericUpDown)
+        private void CheckMinMaxValueOfNumericUpDown(NumericUpDown numericUpDown)
         {
             if (numericUpDown.Value < numericUpDown.Minimum)
             {
@@ -711,43 +714,43 @@ namespace quanlycuocdienthoai_win
                 int rowIndex = e.RowIndex;
                 HourMarks.RemoveAt(rowIndex);
 
-                LoadAddHourMarks();
+                LoadPostageDetails(grvAddHourMark, HourMarks);
             }
         }
 
         private void nudHour_ValueChanged(object sender, EventArgs e)
         {
-            TimeSpanPickerChangeValue(nudHour);
+            CheckMinMaxValueOfNumericUpDown(nudHour);
         }
 
         private void nudMinute_ValueChanged(object sender, EventArgs e)
         {
-            TimeSpanPickerChangeValue(nudMinute);
+            CheckMinMaxValueOfNumericUpDown(nudMinute);
         }
 
         private void nudSecond_ValueChanged(object sender, EventArgs e)
         {
-            TimeSpanPickerChangeValue(nudSecond);
+            CheckMinMaxValueOfNumericUpDown(nudSecond);
         }
 
-        private void LoadAddHourMarks()
+        private void LoadPostageDetails(DataGridView dataGridView, List<PostageDetail> postageDetails)
         {
-            ClearDataGridView(grvAddHourMark);
+            ClearDataGridView(dataGridView);
 
-            if (HourMarks.Count() > 1)
+            if (postageDetails.Count() > 0)
             {
-                for (int i = 0; i < HourMarks.Count - 1; i++)
+                for (int i = 0; i < postageDetails.Count - 1; i++)
                 {
-                    int n = grvAddHourMark.Rows.Add();
-                    grvAddHourMark.Rows[n].Cells[0].Value = HourMarks[i].HourMark.ToString();
-                    grvAddHourMark.Rows[n].Cells[1].Value = HourMarks[i + 1].HourMark.ToString();
-                    grvAddHourMark.Rows[n].Cells[2].Value = HourMarks[i].Cost.ToString();
+                    int n = dataGridView.Rows.Add();
+                    dataGridView.Rows[n].Cells[0].Value = postageDetails[i].HourMark.ToString();
+                    dataGridView.Rows[n].Cells[1].Value = postageDetails[i + 1].HourMark.ToString();
+                    dataGridView.Rows[n].Cells[2].Value = postageDetails[i].Cost.ToString();
                 }
+                int m = dataGridView.Rows.Add();
+                dataGridView.Rows[m].Cells[0].Value = postageDetails[postageDetails.Count - 1].HourMark.ToString();
+                dataGridView.Rows[m].Cells[1].Value = postageDetails[0].HourMark.ToString();
+                dataGridView.Rows[m].Cells[2].Value = postageDetails[postageDetails.Count - 1].Cost.ToString();
             }
-            int m = grvAddHourMark.Rows.Add();
-            grvAddHourMark.Rows[m].Cells[0].Value = HourMarks[HourMarks.Count - 1].HourMark.ToString();
-            grvAddHourMark.Rows[m].Cells[1].Value = HourMarks[0].HourMark.ToString();
-            grvAddHourMark.Rows[m].Cells[2].Value = HourMarks[HourMarks.Count - 1].Cost.ToString();
         }
 
         private bool CheckAddPostageDetails(string cost)
@@ -776,6 +779,16 @@ namespace quanlycuocdienthoai_win
             if (HourMarks.Count > 0 && HourMarks.Where(p => p.HourMark == timeSpan).ToList().Count > 0)
             {
                 MessageBox.Show("Mốc giờ này đã có");
+                return false;
+            }
+            return true;
+        }
+
+        private bool CheckAddPostageDetails(List<PostageDetail> postageDetails)
+        {
+            if (postageDetails.Count == 0)
+            {
+                MessageBox.Show("Phải thêm ít nhất 1 mốc giờ");
                 return false;
             }
             return true;
@@ -818,8 +831,210 @@ namespace quanlycuocdienthoai_win
                 nudSecond.Value = nudSecond.Minimum;
                 txtPostageCost.Text = "";
 
-                LoadAddHourMarks();
+                LoadPostageDetails(grvAddHourMark, HourMarks);
             }
+        }
+
+        private void LoadPostage(Postage postage)
+        {
+            if (postage != null)
+            {
+                int n = grvPostage.Rows.Add();
+                grvPostage.Rows[n].Cells[0].Value = postage.KeyId;
+            }
+        }
+
+        private void LoadPostage(List<Postage> postages)
+        {
+            ClearDataGridView(grvPostage);
+
+            foreach (var postage in postages)
+            {
+                LoadPostage(postage);
+            }
+        }
+
+        private void ShowPostageDetail(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+            {
+                int rowIndex = e.RowIndex;
+                if (grvPostage.Rows[rowIndex].Cells[0].Value.ToString() != "")
+                {
+                    int postageId = Convert.ToInt32(grvPostage.Rows[rowIndex].Cells[0].Value.ToString());
+
+                    List<PostageDetail> postageDetails = new List<PostageDetail>();
+                    postageDetails = db.PostageDetails.Where(x => x.PostageFK == postageId).ToList();
+
+                    LoadPostageDetails(grvPostageDetails, postageDetails);
+                }
+            }
+        }
+
+        private void btnAddPostage_Click(object sender, EventArgs e)
+        {
+            if (CheckAddPostageDetails(HourMarks))
+            {
+                Postage postage = new Postage();
+                postage.KeyId = 0;
+                postage.DateApplied = DateTime.Now;
+                db.Postages.Add(postage);
+
+                db.PostageDetails.AddRange(HourMarks);
+                db.SaveChanges();
+
+                MessageBox.Show("Thêm thành công");
+
+                HourMarks.Clear();
+                ClearDataGridView(grvAddHourMark);
+                LoadAll();
+            }
+        }
+        #endregion
+
+        #region Phone Detail
+
+        static Random random = new Random();
+
+        private bool CheckExistPhoneCallLog(DateTime date)
+        {
+            string fileName = date.Month.ToString() + date.Year.ToString() + ".txt";
+
+            string dirRoot = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            string dirOfFile = Path.Combine(dirRoot, Const.PhoneCallDirection);
+            string dirToFile = Path.Combine(dirOfFile, fileName);
+
+            if (File.Exists(dirToFile))
+                return true;
+            return false;
+        }
+
+        private void btnGenerateRandomDate_Click(object sender, EventArgs e)
+        {
+            DateTime dateStartOfMonth = new DateTime((int)nudPhoneDetailYear.Value, (int)nudPhoneDetailMonth.Value, 1);
+            if (CheckExistPhoneCallLog(dateStartOfMonth))
+            {
+                MessageBox.Show($"Dữ liệu chi tiết cuộc gọi tháng {dateStartOfMonth.Month}/{dateStartOfMonth.Year} đã có");
+            }
+            else
+            {
+                List<PhoneNumber> availablePhoneNumber = new List<PhoneNumber>();
+                //lấy những đơn đăng ký nào đăng ký hòa mạng trong tháng đó hoặc trước đó
+                List<InvoiceRegister> invoiceRegisters = db.InvoiceRegisters.Where(x => (x.DateRegisted.CompareTo(dateStartOfMonth) >= 0 && x.Status)).ToList();
+                //lấy sđt từ các hóa đơn đó
+                foreach (var invoiceRegister in invoiceRegisters)
+                {
+                    PhoneNumber phoneNumber = new PhoneNumber();
+                    phoneNumber = db.PhoneNumbers.Find(invoiceRegister.PhoneNumberFK);
+                    availablePhoneNumber.Add(phoneNumber);
+                }
+                //lấy những sđt đã đóng tiền trong tháng gần nhất
+                foreach (var phoneNumber in availablePhoneNumber)
+                {
+                    if (!CheckPaidInvoice(phoneNumber))
+                    {
+                        availablePhoneNumber.Remove(phoneNumber);
+                    }
+                }
+                //Tạo ngẫu nhiên và ghi file
+                ImportFile((int)nudNumberOfRecord.Value, dateStartOfMonth, availablePhoneNumber);
+            }
+        }
+
+        private DateTime RandomDateRange(DateTime dateStart, DateTime dateEnd)
+        {
+            var duration = new TimeSpan(0, 0, 0, random.Next(86400));
+            int range = ((TimeSpan)(dateEnd - dateStart)).Days;
+            return dateStart.AddDays(random.Next(range)).Add(duration);
+        }
+
+        private DateTime RandomDateEnd(DateTime dateStart)
+        {
+            var duration = new TimeSpan(0, 0, 0, random.Next(86400));
+            return dateStart.Add(duration);
+        }
+
+        private PhoneNumber RandomPhoneNumber(List<PhoneNumber> phoneNumbers)
+        {
+            int index = random.Next(phoneNumbers.Count);
+            return phoneNumbers[index];
+        }
+
+        private List<PhoneCallDetail> RandomPhoneCallDetail(int lines, List<PhoneNumber> availableNumbers, DateTime dateStart, DateTime dateEnd)
+        {
+            List<PhoneCallDetail> phoneCallDetails = new List<PhoneCallDetail>();
+
+            for (int i = 0; i < lines; i++)
+            {
+                PhoneCallDetail phoneCallDetail = new PhoneCallDetail();
+                PhoneNumber phoneNumber = RandomPhoneNumber(availableNumbers);
+                phoneCallDetail.KeyId = 0;
+                phoneCallDetail.PhoneNumberFK = phoneNumber.KeyId;
+                phoneCallDetail.TimeStart = RandomDateRange(dateStart, dateEnd);
+                phoneCallDetail.TimeFinish = RandomDateEnd(phoneCallDetail.TimeStart);
+                phoneCallDetail.SubTotal = 0;
+
+                phoneCallDetails.Add(phoneCallDetail);
+            }
+
+            return phoneCallDetails.OrderBy(x => x.TimeStart).ToList();
+        }
+
+        private void ImportFile(int lines, DateTime dateStart, List<PhoneNumber> phoneNumbers)
+        {
+            DateTime dateEnd = new DateTime(dateStart.Year, dateStart.Month, DateTime.DaysInMonth(dateStart.Year, dateStart.Month), 23, 59, 59);
+
+            string fileName = dateStart.Month.ToString() + dateStart.Year.ToString() + ".txt";
+
+            string dirRoot = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            string dirOfFile = dirRoot + Const.PhoneCallDirection;
+            string dirToFile = Path.Combine(dirOfFile, fileName);
+
+            if (!File.Exists(dirToFile))
+            {
+                File.Create(dirToFile).Dispose();
+            }
+            List<PhoneCallDetail> phoneCallDetails = RandomPhoneCallDetail(lines, phoneNumbers, dateStart, dateEnd);
+
+            using(StreamWriter outFile= new StreamWriter(dirToFile))
+            {
+                foreach (var phoneCallDetail in phoneCallDetails)
+                {
+                    outFile.WriteLine($"{phoneCallDetail.PhoneNumberFK}\t{phoneCallDetail.TimeStart}\t{phoneCallDetail.TimeFinish}");
+                }
+                outFile.Close();
+            }
+
+            MessageBox.Show("Tạo thành công");
+        }
+
+        private void nudNumberOfRecord_ValueChanged(object sender, EventArgs e)
+        {
+            CheckMinMaxValueOfNumericUpDown(nudNumberOfRecord);
+        }
+
+        private void nudPhoneDetailMonth_ValueChanged(object sender, EventArgs e)
+        {
+            CheckMinMaxValueOfNumericUpDown(nudPhoneDetailMonth);
+        }
+
+        private void nudPhoneDetailYear_ValueChanged(object sender, EventArgs e)
+        {
+            CheckMinMaxValueOfNumericUpDown(nudPhoneDetailYear);
+        }
+        #endregion
+
+        #region Invoice Postage
+        private InvoicePostage GetTheLastInvoicePostage(int PhoneNumberFK)
+        {
+            return db.InvoicePostages.Where(x => x.PhoneNumberFK == PhoneNumberFK).OrderByDescending(x => x.PaymentPeriod).FirstOrDefault();
+        }
+
+        private bool CheckPaidInvoice(PhoneNumber phoneNumber)
+        {
+            if (GetTheLastInvoicePostage(phoneNumber.KeyId) == null || GetTheLastInvoicePostage(phoneNumber.KeyId).PaidPostage)
+                return true;
+            return false;
         }
         #endregion
     }

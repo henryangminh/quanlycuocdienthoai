@@ -24,9 +24,9 @@ namespace quanlycuocdienthoai.DAL
             {
                 context.PhoneNumbers.AddRange(new List<PhoneNumber>()
                 {
-                    new PhoneNumber() { PhoneNo="0919991167", Status=true},
-                    new PhoneNumber() { PhoneNo="0984861168", Status=true},
-                    new PhoneNumber() { PhoneNo="0523188169", Status=true},
+                    new PhoneNumber() { PhoneNo="0919991167", Status=false},
+                    new PhoneNumber() { PhoneNo="0984861168", Status=false},
+                    new PhoneNumber() { PhoneNo="0523188169", Status=false},
                 });
             }
             context.SaveChanges();
