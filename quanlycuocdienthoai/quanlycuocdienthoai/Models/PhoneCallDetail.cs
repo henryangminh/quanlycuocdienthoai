@@ -8,7 +8,7 @@ namespace quanlycuocdienthoai.Models
         public int PhoneNumberFK { get; set; }
         public DateTime TimeStart { get; set; }
         public DateTime TimeFinish { get; set; }
-        public int SubTotal { get; set; }
+        public double SubTotal { get; set; }
 
         [ForeignKey("PhoneNumberFK")]
         public virtual PhoneNumber PhoneNumberFKNavigation { get; set; }

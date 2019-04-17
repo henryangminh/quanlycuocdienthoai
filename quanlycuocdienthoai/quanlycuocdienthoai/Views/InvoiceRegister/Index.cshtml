@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Tạo mới", "Create")
+    @*@Html.ActionLink("Tạo mới", "Create")*@
 </p>
 <table class="table">
     <tr>
@@ -40,12 +40,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.CostRegister)
         </td>
-        <td>
-            @Html.ActionLink("Sừa", "Edit", new { id = item.KeyId }) |
-            @Html.ActionLink("Chi Tiết", "Details", new { id = item.KeyId }) |
-            @Html.ActionLink("Khóa", "Delete", new { id = item.KeyId })
-        </td>
-    </tr>
-}
+        @*
+                <td>
+                    @Html.ActionLink("Sừa", "Edit", new { id = item.KeyId }) |
+                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.KeyId }) |
+                    @Html.ActionLink("Khóa", "Delete", new { id = item.KeyId })
+                </td>
+            *@
+            </tr>
+        }
 
-</table>
+        </table>

@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table class="table">
     <tr>
@@ -22,9 +22,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.DateApplied)
         </td>
+        @*
         <td>
             @Html.ActionLink("Chi tiết", "Details", new { id=item.KeyId })
         </td>
+        *@
     </tr>
 }
 

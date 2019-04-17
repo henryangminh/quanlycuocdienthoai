@@ -11,7 +11,7 @@ namespace quanlycuocdienthoai.Models
         /// </summary>
         public DateTime PaymentPeriod { get; set; }
         public int PhoneNumberFK { get; set; }
-        public int Total { get; set; }
+        public double Total { get; set; }
         [DefaultValue(false)]
         public bool PaidPostage { get; set; }
 
