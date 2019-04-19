@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace quanlycuocdienthoai.DAL
+namespace quanlycuocdienthoai.EF
 {
     public class PostageInitializer : DropCreateDatabaseIfModelChanges<PostageContext>
     {

@@ -6,10 +6,7 @@ namespace quanlycuocdienthoai.Models
 {
     public class InvoicePostage : DomainEntity<int>
     {
-        /// <summary>
-        /// Kỳ thanh toán, chỉ lấy tháng và năm. Ngày set bằng 1
-        /// </summary>
-        public DateTime PaymentPeriod { get; set; }
+        public int PeriodFK { get; set; }
         public int PhoneNumberFK { get; set; }
         public double Total { get; set; }
         [DefaultValue(false)]
@@ -17,5 +14,8 @@ namespace quanlycuocdienthoai.Models
 
         [ForeignKey("PhoneNumberFK")]
         public virtual PhoneNumber PhoneNumberFKNavigation { get; set; }
+
+        [ForeignKey("PaymentPeriodFK")]
+        public virtual Period PeriodFKNavigation { get; set; }
     }
 }

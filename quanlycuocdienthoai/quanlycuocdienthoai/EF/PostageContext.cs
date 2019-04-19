@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace quanlycuocdienthoai.DAL
+namespace quanlycuocdienthoai.EF
 {
     public class PostageContext : DbContext
     {
@@ -18,6 +18,7 @@ namespace quanlycuocdienthoai.DAL
         public virtual DbSet<Postage> Postages { get; set; }
         public virtual DbSet<PostageDetail> PostageDetails { get; set; }
         public virtual DbSet<SIM> SIMs { get; set; }
+        public virtual DbSet<Period> Periods { get; set; }
         #endregion
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

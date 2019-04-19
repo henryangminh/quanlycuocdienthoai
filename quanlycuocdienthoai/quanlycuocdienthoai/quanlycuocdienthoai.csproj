@@ -137,8 +137,8 @@
     <Compile Include="Controllers\PostageController.cs" />
     <Compile Include="Controllers\PostageDetailController.cs" />
     <Compile Include="Controllers\SIMController.cs" />
-    <Compile Include="DAL\PostageContext.cs" />
-    <Compile Include="DAL\PostageInitializer.cs" />
+    <Compile Include="EF\PostageContext.cs" />
+    <Compile Include="EF\PostageInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,6 +146,7 @@
     <Compile Include="Models\DomainEntity.cs" />
     <Compile Include="Models\InvoicePostage.cs" />
     <Compile Include="Models\InvoiceRegister.cs" />
+    <Compile Include="Models\Period.cs" />
     <Compile Include="Models\PhoneCallDetail.cs" />
     <Compile Include="Models\PhoneNumber.cs" />
     <Compile Include="Models\Postage.cs" />
