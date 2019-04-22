@@ -36,7 +36,7 @@ namespace quanlycuocdienthoai_win.BUS
         public List<InvoiceRegister> GetByPhoneNumber(List<InvoiceRegister> invoiceRegisters, string number)
         {
             PhoneNumber phoneNumber = phoneNumberDAL.GetByPhoneNumber(number);
-            return invoiceRegisterDAL.GetByCustomer(invoiceRegisters, phoneNumber);
+            return invoiceRegisterDAL.GetByPhoneNumber(invoiceRegisters, phoneNumber);
         }
 
         public bool CheckRegisterInformations(string customerKeyId, string phoneNo, string cost)

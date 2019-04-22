@@ -14,7 +14,7 @@ namespace quanlycuocdienthoai_win.DAL
 
         public InvoicePostage GetTheLastInvoicePostage(int PhoneNumberFK)
         {
-            return db.InvoicePostages.Where(x => x.PhoneNumberFK == PhoneNumberFK).OrderByDescending(x => x.PaymentPeriod).FirstOrDefault();
+            return db.InvoicePostages.Where(x => x.PhoneNumberFK == PhoneNumberFK).OrderByDescending(x => x.PeriodFKNavigation.PeriodPayment).FirstOrDefault();
         }
     }
 }

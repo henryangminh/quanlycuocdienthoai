@@ -15,7 +15,7 @@ namespace quanlycuocdienthoai.Models
         [ForeignKey("PhoneNumberFK")]
         public virtual PhoneNumber PhoneNumberFKNavigation { get; set; }
 
-        [ForeignKey("PaymentPeriodFK")]
+        [ForeignKey("PeriodFK")]
         public virtual Period PeriodFKNavigation { get; set; }
     }
 }
