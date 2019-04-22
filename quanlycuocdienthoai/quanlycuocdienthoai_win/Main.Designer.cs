@@ -102,8 +102,21 @@
             this.txtRegisterCustomer = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.tabPageInvoicePostage = new System.Windows.Forms.TabPage();
             this.tabPagePhoneCallDetail = new System.Windows.Forms.TabPage();
+            this.lblPhoneCallDetailPeriod = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.txtViewPhoneCallDetailPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtViewPhoneCallDetailTimeStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtViewPhoneCallDetailTimeEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtViewPhoneCallDetailSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtViewPhoneCallDetailPeriod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnViewPhoneCallDetail = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnGenerateRandomDate = new System.Windows.Forms.Button();
             this.label57 = new System.Windows.Forms.Label();
             this.nudPhoneDetailYear = new System.Windows.Forms.NumericUpDown();
@@ -114,6 +127,21 @@
             this.nudNumberOfRecord = new System.Windows.Forms.NumericUpDown();
             this.label53 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
+            this.tabPageInvoicePostage = new System.Windows.Forms.TabPage();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.txtViewInvoicePostagePhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtViewInvoicePostageTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtViewInvoicePostageStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnViewInvoicePostagePaid = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
             this.tabPagePhoneNumber = new System.Windows.Forms.TabPage();
             this.cbxViewPhoneNumberPhoneNoSearch = new System.Windows.Forms.ComboBox();
             this.btnViewPhoneNumberSearch = new System.Windows.Forms.Button();
@@ -180,44 +208,20 @@
             this.btnAddHourMark = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtViewPhoneCallDetailPeriod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnViewPhoneCallDetail = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.txtViewPhoneCallDetailPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtViewPhoneCallDetailTimeStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtViewPhoneCallDetailTimeEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtViewPhoneCallDetailSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label58 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.lblPhoneCallDetailPeriod = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.txtViewInvoicePostagePhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtViewInvoicePostageTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtViewInvoicePostageStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnViewInvoicePostagePaid = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPostageProject.SuspendLayout();
             this.tabPageCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomer)).BeginInit();
             this.tabPageInvoiceRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvRegister)).BeginInit();
-            this.tabPageInvoicePostage.SuspendLayout();
             this.tabPagePhoneCallDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfRecord)).BeginInit();
+            this.tabPageInvoicePostage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabPagePhoneNumber.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhoneNumber)).BeginInit();
             this.tabPageSIM.SuspendLayout();
@@ -230,10 +234,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudSecond)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHour)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPostageProject
@@ -945,24 +945,6 @@
             this.label15.TabIndex = 1;
             this.label15.Text = "Đăng ký sử dụng SĐT";
             // 
-            // tabPageInvoicePostage
-            // 
-            this.tabPageInvoicePostage.Controls.Add(this.dataGridView4);
-            this.tabPageInvoicePostage.Controls.Add(this.label63);
-            this.tabPageInvoicePostage.Controls.Add(this.label64);
-            this.tabPageInvoicePostage.Controls.Add(this.label65);
-            this.tabPageInvoicePostage.Controls.Add(this.comboBox2);
-            this.tabPageInvoicePostage.Controls.Add(this.dataGridView3);
-            this.tabPageInvoicePostage.Controls.Add(this.label61);
-            this.tabPageInvoicePostage.Controls.Add(this.label62);
-            this.tabPageInvoicePostage.Location = new System.Drawing.Point(4, 22);
-            this.tabPageInvoicePostage.Name = "tabPageInvoicePostage";
-            this.tabPageInvoicePostage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInvoicePostage.Size = new System.Drawing.Size(975, 678);
-            this.tabPageInvoicePostage.TabIndex = 2;
-            this.tabPageInvoicePostage.Text = "Hóa Đơn Tháng";
-            this.tabPageInvoicePostage.UseVisualStyleBackColor = true;
-            // 
             // tabPagePhoneCallDetail
             // 
             this.tabPagePhoneCallDetail.Controls.Add(this.lblPhoneCallDetailPeriod);
@@ -990,6 +972,136 @@
             this.tabPagePhoneCallDetail.TabIndex = 3;
             this.tabPagePhoneCallDetail.Text = "Chi tiết cuộc gọi";
             this.tabPagePhoneCallDetail.UseVisualStyleBackColor = true;
+            // 
+            // lblPhoneCallDetailPeriod
+            // 
+            this.lblPhoneCallDetailPeriod.AutoSize = true;
+            this.lblPhoneCallDetailPeriod.Location = new System.Drawing.Point(687, 220);
+            this.lblPhoneCallDetailPeriod.Name = "lblPhoneCallDetailPeriod";
+            this.lblPhoneCallDetailPeriod.Size = new System.Drawing.Size(22, 13);
+            this.lblPhoneCallDetailPeriod.TabIndex = 51;
+            this.lblPhoneCallDetailPeriod.Text = "xxx";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(614, 220);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(76, 13);
+            this.label60.TabIndex = 50;
+            this.label60.Text = "Kỳ thanh toán:";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(326, 220);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(32, 13);
+            this.label59.TabIndex = 49;
+            this.label59.Text = "SĐT:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(367, 216);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(241, 21);
+            this.comboBox1.TabIndex = 48;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(6, 171);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(98, 25);
+            this.label58.TabIndex = 47;
+            this.label58.Text = "Tìm kiếm";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToOrderColumns = true;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtViewPhoneCallDetailPhoneNumber,
+            this.txtViewPhoneCallDetailTimeStart,
+            this.txtViewPhoneCallDetailTimeEnd,
+            this.txtViewPhoneCallDetailSubTotal});
+            this.dataGridView2.Location = new System.Drawing.Point(258, 262);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(711, 410);
+            this.dataGridView2.TabIndex = 46;
+            // 
+            // txtViewPhoneCallDetailPhoneNumber
+            // 
+            this.txtViewPhoneCallDetailPhoneNumber.HeaderText = "SĐT";
+            this.txtViewPhoneCallDetailPhoneNumber.Name = "txtViewPhoneCallDetailPhoneNumber";
+            this.txtViewPhoneCallDetailPhoneNumber.ReadOnly = true;
+            this.txtViewPhoneCallDetailPhoneNumber.Width = 120;
+            // 
+            // txtViewPhoneCallDetailTimeStart
+            // 
+            this.txtViewPhoneCallDetailTimeStart.HeaderText = "Thời gian bắt đầu";
+            this.txtViewPhoneCallDetailTimeStart.Name = "txtViewPhoneCallDetailTimeStart";
+            this.txtViewPhoneCallDetailTimeStart.ReadOnly = true;
+            this.txtViewPhoneCallDetailTimeStart.Width = 200;
+            // 
+            // txtViewPhoneCallDetailTimeEnd
+            // 
+            this.txtViewPhoneCallDetailTimeEnd.HeaderText = "Thời gian kết thúc";
+            this.txtViewPhoneCallDetailTimeEnd.Name = "txtViewPhoneCallDetailTimeEnd";
+            this.txtViewPhoneCallDetailTimeEnd.ReadOnly = true;
+            this.txtViewPhoneCallDetailTimeEnd.Width = 200;
+            // 
+            // txtViewPhoneCallDetailSubTotal
+            // 
+            this.txtViewPhoneCallDetailSubTotal.HeaderText = "Giá";
+            this.txtViewPhoneCallDetailSubTotal.Name = "txtViewPhoneCallDetailSubTotal";
+            this.txtViewPhoneCallDetailSubTotal.ReadOnly = true;
+            this.txtViewPhoneCallDetailSubTotal.Width = 120;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtViewPhoneCallDetailPeriod,
+            this.btnViewPhoneCallDetail});
+            this.dataGridView1.Location = new System.Drawing.Point(7, 262);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(245, 410);
+            this.dataGridView1.TabIndex = 45;
+            // 
+            // txtViewPhoneCallDetailPeriod
+            // 
+            this.txtViewPhoneCallDetailPeriod.HeaderText = "Kỳ thanh toán";
+            this.txtViewPhoneCallDetailPeriod.Name = "txtViewPhoneCallDetailPeriod";
+            this.txtViewPhoneCallDetailPeriod.ReadOnly = true;
+            // 
+            // btnViewPhoneCallDetail
+            // 
+            this.btnViewPhoneCallDetail.HeaderText = "";
+            this.btnViewPhoneCallDetail.Name = "btnViewPhoneCallDetail";
+            this.btnViewPhoneCallDetail.ReadOnly = true;
+            this.btnViewPhoneCallDetail.Text = "Xem chi tiết";
+            this.btnViewPhoneCallDetail.UseColumnTextForButtonValue = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(89, 136);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 44;
+            this.button1.Text = "Tính cước";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnGenerateRandomDate
             // 
@@ -1095,7 +1207,7 @@
             this.nudNumberOfRecord.Size = new System.Drawing.Size(64, 20);
             this.nudNumberOfRecord.TabIndex = 4;
             this.nudNumberOfRecord.Value = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
             0});
@@ -1120,6 +1232,155 @@
             this.label52.Size = new System.Drawing.Size(249, 38);
             this.label52.TabIndex = 2;
             this.label52.Text = "Chi tiết cuộc gọi";
+            // 
+            // tabPageInvoicePostage
+            // 
+            this.tabPageInvoicePostage.Controls.Add(this.dataGridView4);
+            this.tabPageInvoicePostage.Controls.Add(this.label63);
+            this.tabPageInvoicePostage.Controls.Add(this.label64);
+            this.tabPageInvoicePostage.Controls.Add(this.label65);
+            this.tabPageInvoicePostage.Controls.Add(this.comboBox2);
+            this.tabPageInvoicePostage.Controls.Add(this.dataGridView3);
+            this.tabPageInvoicePostage.Controls.Add(this.label61);
+            this.tabPageInvoicePostage.Controls.Add(this.label62);
+            this.tabPageInvoicePostage.Location = new System.Drawing.Point(4, 22);
+            this.tabPageInvoicePostage.Name = "tabPageInvoicePostage";
+            this.tabPageInvoicePostage.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageInvoicePostage.Size = new System.Drawing.Size(975, 678);
+            this.tabPageInvoicePostage.TabIndex = 2;
+            this.tabPageInvoicePostage.Text = "Hóa Đơn Tháng";
+            this.tabPageInvoicePostage.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.AllowUserToAddRows = false;
+            this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.AllowUserToOrderColumns = true;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txtViewInvoicePostagePhoneNumber,
+            this.txtViewInvoicePostageTotal,
+            this.txtViewInvoicePostageStatus,
+            this.btnViewInvoicePostagePaid});
+            this.dataGridView4.Location = new System.Drawing.Point(258, 129);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.ReadOnly = true;
+            this.dataGridView4.Size = new System.Drawing.Size(711, 543);
+            this.dataGridView4.TabIndex = 56;
+            // 
+            // txtViewInvoicePostagePhoneNumber
+            // 
+            this.txtViewInvoicePostagePhoneNumber.HeaderText = "SĐT";
+            this.txtViewInvoicePostagePhoneNumber.Name = "txtViewInvoicePostagePhoneNumber";
+            this.txtViewInvoicePostagePhoneNumber.ReadOnly = true;
+            // 
+            // txtViewInvoicePostageTotal
+            // 
+            this.txtViewInvoicePostageTotal.HeaderText = "Tổng tiền";
+            this.txtViewInvoicePostageTotal.Name = "txtViewInvoicePostageTotal";
+            this.txtViewInvoicePostageTotal.ReadOnly = true;
+            this.txtViewInvoicePostageTotal.Width = 150;
+            // 
+            // txtViewInvoicePostageStatus
+            // 
+            this.txtViewInvoicePostageStatus.HeaderText = "Trạng thái";
+            this.txtViewInvoicePostageStatus.Name = "txtViewInvoicePostageStatus";
+            this.txtViewInvoicePostageStatus.ReadOnly = true;
+            this.txtViewInvoicePostageStatus.Width = 150;
+            // 
+            // btnViewInvoicePostagePaid
+            // 
+            this.btnViewInvoicePostagePaid.HeaderText = "";
+            this.btnViewInvoicePostagePaid.Name = "btnViewInvoicePostagePaid";
+            this.btnViewInvoicePostagePaid.ReadOnly = true;
+            this.btnViewInvoicePostagePaid.Text = "Thanh toán";
+            this.btnViewInvoicePostagePaid.UseColumnTextForButtonValue = true;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(464, 88);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(22, 13);
+            this.label63.TabIndex = 55;
+            this.label63.Text = "xxx";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(391, 88);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(76, 13);
+            this.label64.TabIndex = 54;
+            this.label64.Text = "Kỳ thanh toán:";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(103, 88);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(32, 13);
+            this.label65.TabIndex = 53;
+            this.label65.Text = "SĐT:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(144, 84);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(241, 21);
+            this.comboBox2.TabIndex = 52;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AllowUserToOrderColumns = true;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewButtonColumn1});
+            this.dataGridView3.Location = new System.Drawing.Point(6, 129);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.Size = new System.Drawing.Size(245, 543);
+            this.dataGridView3.TabIndex = 46;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Kỳ thanh toán";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.HeaderText = "";
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.ReadOnly = true;
+            this.dataGridViewButtonColumn1.Text = "Xem chi tiết";
+            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(6, 41);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(98, 25);
+            this.label61.TabIndex = 5;
+            this.label61.Text = "Tìm kiếm";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label62.Location = new System.Drawing.Point(3, 3);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(230, 38);
+            this.label62.TabIndex = 4;
+            this.label62.Text = "Hóa đơn tháng";
             // 
             // tabPagePhoneNumber
             // 
@@ -1804,263 +2065,6 @@
             this.label42.TabIndex = 26;
             this.label42.Text = "Giá cước";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(89, 136);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Tính cước";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.txtViewPhoneCallDetailPeriod,
-            this.btnViewPhoneCallDetail});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 262);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(245, 410);
-            this.dataGridView1.TabIndex = 45;
-            // 
-            // txtViewPhoneCallDetailPeriod
-            // 
-            this.txtViewPhoneCallDetailPeriod.HeaderText = "Kỳ thanh toán";
-            this.txtViewPhoneCallDetailPeriod.Name = "txtViewPhoneCallDetailPeriod";
-            this.txtViewPhoneCallDetailPeriod.ReadOnly = true;
-            // 
-            // btnViewPhoneCallDetail
-            // 
-            this.btnViewPhoneCallDetail.HeaderText = "";
-            this.btnViewPhoneCallDetail.Name = "btnViewPhoneCallDetail";
-            this.btnViewPhoneCallDetail.ReadOnly = true;
-            this.btnViewPhoneCallDetail.Text = "Xem chi tiết";
-            this.btnViewPhoneCallDetail.UseColumnTextForButtonValue = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToOrderColumns = true;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.txtViewPhoneCallDetailPhoneNumber,
-            this.txtViewPhoneCallDetailTimeStart,
-            this.txtViewPhoneCallDetailTimeEnd,
-            this.txtViewPhoneCallDetailSubTotal});
-            this.dataGridView2.Location = new System.Drawing.Point(258, 262);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(711, 410);
-            this.dataGridView2.TabIndex = 46;
-            // 
-            // txtViewPhoneCallDetailPhoneNumber
-            // 
-            this.txtViewPhoneCallDetailPhoneNumber.HeaderText = "SĐT";
-            this.txtViewPhoneCallDetailPhoneNumber.Name = "txtViewPhoneCallDetailPhoneNumber";
-            this.txtViewPhoneCallDetailPhoneNumber.ReadOnly = true;
-            this.txtViewPhoneCallDetailPhoneNumber.Width = 120;
-            // 
-            // txtViewPhoneCallDetailTimeStart
-            // 
-            this.txtViewPhoneCallDetailTimeStart.HeaderText = "Thời gian bắt đầu";
-            this.txtViewPhoneCallDetailTimeStart.Name = "txtViewPhoneCallDetailTimeStart";
-            this.txtViewPhoneCallDetailTimeStart.ReadOnly = true;
-            this.txtViewPhoneCallDetailTimeStart.Width = 200;
-            // 
-            // txtViewPhoneCallDetailTimeEnd
-            // 
-            this.txtViewPhoneCallDetailTimeEnd.HeaderText = "Thời gian kết thúc";
-            this.txtViewPhoneCallDetailTimeEnd.Name = "txtViewPhoneCallDetailTimeEnd";
-            this.txtViewPhoneCallDetailTimeEnd.ReadOnly = true;
-            this.txtViewPhoneCallDetailTimeEnd.Width = 200;
-            // 
-            // txtViewPhoneCallDetailSubTotal
-            // 
-            this.txtViewPhoneCallDetailSubTotal.HeaderText = "Giá";
-            this.txtViewPhoneCallDetailSubTotal.Name = "txtViewPhoneCallDetailSubTotal";
-            this.txtViewPhoneCallDetailSubTotal.ReadOnly = true;
-            this.txtViewPhoneCallDetailSubTotal.Width = 120;
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(6, 171);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(98, 25);
-            this.label58.TabIndex = 47;
-            this.label58.Text = "Tìm kiếm";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(367, 216);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(241, 21);
-            this.comboBox1.TabIndex = 48;
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(326, 220);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(32, 13);
-            this.label59.TabIndex = 49;
-            this.label59.Text = "SĐT:";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(614, 220);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(76, 13);
-            this.label60.TabIndex = 50;
-            this.label60.Text = "Kỳ thanh toán:";
-            // 
-            // lblPhoneCallDetailPeriod
-            // 
-            this.lblPhoneCallDetailPeriod.AutoSize = true;
-            this.lblPhoneCallDetailPeriod.Location = new System.Drawing.Point(687, 220);
-            this.lblPhoneCallDetailPeriod.Name = "lblPhoneCallDetailPeriod";
-            this.lblPhoneCallDetailPeriod.Size = new System.Drawing.Size(22, 13);
-            this.lblPhoneCallDetailPeriod.TabIndex = 51;
-            this.lblPhoneCallDetailPeriod.Text = "xxx";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(6, 41);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(98, 25);
-            this.label61.TabIndex = 5;
-            this.label61.Text = "Tìm kiếm";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
-            this.label62.Location = new System.Drawing.Point(3, 3);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(230, 38);
-            this.label62.TabIndex = 4;
-            this.label62.Text = "Hóa đơn tháng";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AllowUserToOrderColumns = true;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewButtonColumn1});
-            this.dataGridView3.Location = new System.Drawing.Point(6, 129);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(245, 543);
-            this.dataGridView3.TabIndex = 46;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Kỳ thanh toán";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            this.dataGridViewButtonColumn1.HeaderText = "";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.ReadOnly = true;
-            this.dataGridViewButtonColumn1.Text = "Xem chi tiết";
-            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(464, 88);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(22, 13);
-            this.label63.TabIndex = 55;
-            this.label63.Text = "xxx";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(391, 88);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(76, 13);
-            this.label64.TabIndex = 54;
-            this.label64.Text = "Kỳ thanh toán:";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(103, 88);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(32, 13);
-            this.label65.TabIndex = 53;
-            this.label65.Text = "SĐT:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(144, 84);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(241, 21);
-            this.comboBox2.TabIndex = 52;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.AllowUserToOrderColumns = true;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.txtViewInvoicePostagePhoneNumber,
-            this.txtViewInvoicePostageTotal,
-            this.txtViewInvoicePostageStatus,
-            this.btnViewInvoicePostagePaid});
-            this.dataGridView4.Location = new System.Drawing.Point(258, 129);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(711, 543);
-            this.dataGridView4.TabIndex = 56;
-            // 
-            // txtViewInvoicePostagePhoneNumber
-            // 
-            this.txtViewInvoicePostagePhoneNumber.HeaderText = "SĐT";
-            this.txtViewInvoicePostagePhoneNumber.Name = "txtViewInvoicePostagePhoneNumber";
-            // 
-            // txtViewInvoicePostageTotal
-            // 
-            this.txtViewInvoicePostageTotal.HeaderText = "Tổng tiền";
-            this.txtViewInvoicePostageTotal.Name = "txtViewInvoicePostageTotal";
-            this.txtViewInvoicePostageTotal.Width = 150;
-            // 
-            // txtViewInvoicePostageStatus
-            // 
-            this.txtViewInvoicePostageStatus.HeaderText = "Trạng thái";
-            this.txtViewInvoicePostageStatus.Name = "txtViewInvoicePostageStatus";
-            this.txtViewInvoicePostageStatus.Width = 150;
-            // 
-            // btnViewInvoicePostagePaid
-            // 
-            this.btnViewInvoicePostagePaid.HeaderText = "";
-            this.btnViewInvoicePostagePaid.Name = "btnViewInvoicePostagePaid";
-            this.btnViewInvoicePostagePaid.Text = "Thanh toán";
-            this.btnViewInvoicePostagePaid.UseColumnTextForButtonValue = true;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2076,13 +2080,17 @@
             this.tabPageInvoiceRegister.ResumeLayout(false);
             this.tabPageInvoiceRegister.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvRegister)).EndInit();
-            this.tabPageInvoicePostage.ResumeLayout(false);
-            this.tabPageInvoicePostage.PerformLayout();
             this.tabPagePhoneCallDetail.ResumeLayout(false);
             this.tabPagePhoneCallDetail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfRecord)).EndInit();
+            this.tabPageInvoicePostage.ResumeLayout(false);
+            this.tabPageInvoicePostage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabPagePhoneNumber.ResumeLayout(false);
             this.tabPagePhoneNumber.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhoneNumber)).EndInit();
@@ -2098,10 +2106,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudSecond)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinute)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHour)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
 
         }
