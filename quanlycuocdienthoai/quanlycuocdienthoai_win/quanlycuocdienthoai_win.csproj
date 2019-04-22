@@ -54,15 +54,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\CustomerBUS.cs" />
+    <Compile Include="BUS\InvoicePostageBUS.cs" />
     <Compile Include="BUS\InvoiceRegisterBUS.cs" />
+    <Compile Include="BUS\PhoneCallDetailBUS.cs" />
     <Compile Include="BUS\PhoneNumberBUS.cs" />
+    <Compile Include="BUS\PostageBUS.cs" />
+    <Compile Include="BUS\PostageDetailBUS.cs" />
     <Compile Include="BUS\Shared.cs" />
     <Compile Include="BUS\SimBUS.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="DAL\CustomerDAL.cs" />
+    <Compile Include="DAL\InvoicePostageDAL.cs" />
     <Compile Include="DAL\InvoiceRegisterDAL.cs" />
+    <Compile Include="DAL\PhoneCallDetailDAL.cs" />
     <Compile Include="DAL\PhoneNumberDAL.cs" />
+    <Compile Include="DAL\PostageDAL.cs" />
+    <Compile Include="DAL\PostageDetailDAL.cs" />
     <Compile Include="DAL\SimDAL.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

@@ -107,5 +107,9 @@ namespace quanlycuocdienthoai_win.BUS
                 return false;
             }
         }
+
+        public List<InvoiceRegister> GetTheRegisterInThatMonthOrBefore(DateTime date) {
+            return invoiceRegisterDAL.GetTheRegisterInThatMonthOrBefore(date);
+        }
     }
 }

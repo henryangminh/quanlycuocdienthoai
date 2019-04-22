@@ -51,5 +51,14 @@ namespace quanlycuocdienthoai_win.DAL
         {
             return invoiceRegisters.Where(x => x.PhoneNumberFK == phoneNumber.KeyId).ToList();
         }
+
+        /// <summary>
+        /// lấy những đơn đăng ký nào đăng ký hòa mạng trong tháng đó hoặc trước đó
+        /// </summary>
+        /// <returns></returns>
+        public List<InvoiceRegister> GetTheRegisterInThatMonthOrBefore(DateTime date)
+        {
+            return db.InvoiceRegisters.Where(x => (x.DateRegisted.CompareTo(date) >= 0 && x.Status)).ToList();
+        }
     }
 }
