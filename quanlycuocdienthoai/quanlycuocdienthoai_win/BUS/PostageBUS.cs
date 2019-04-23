@@ -89,5 +89,10 @@ namespace quanlycuocdienthoai_win.BUS
         {
             return postageDAL.GetAll();
         }
+
+        public Postage GetTheLastPostage()
+        {
+            return postageDAL.GetTheLastPostage();
+        }
     }
 }

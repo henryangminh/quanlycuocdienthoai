@@ -12,6 +12,8 @@ namespace quanlycuocdienthoai_win.BUS
 {
     public class PhoneNumberBUS
     {
+        InvoiceRegisterBUS invoiceRegisterBUS = new InvoiceRegisterBUS();
+        InvoicePostageBUS invoicePostageBUS = new InvoicePostageBUS();
         PhoneNumberDAL phoneNumberDAL = new PhoneNumberDAL();
         SimDAL simDAL = new SimDAL();
         Shared shared = new Shared();
@@ -91,6 +93,29 @@ namespace quanlycuocdienthoai_win.BUS
                 }
                 return false;
             }
+        }
+
+        public List<PhoneNumber> GetAvailablePhoneNumber(DateTime dateTime)
+        {
+            List<PhoneNumber> availablePhoneNumber = new List<PhoneNumber>();
+            //lấy những đơn đăng ký nào đăng ký hòa mạng trong tháng đó hoặc trước đó
+            List<InvoiceRegister> invoiceRegisters = invoiceRegisterBUS.GetTheRegisterInThatMonthOrBefore(dateTime);
+            //lấy sđt từ các hóa đơn đó
+            foreach (var invoiceRegister in invoiceRegisters)
+            {
+                PhoneNumber phoneNumber = new PhoneNumber();
+                phoneNumber = GetById(invoiceRegister.PhoneNumberFK);
+                availablePhoneNumber.Add(phoneNumber);
+            }
+            //lấy những sđt đã đóng tiền trong tháng gần nhất
+            foreach (var phoneNumber in availablePhoneNumber)
+            {
+                if (!invoicePostageBUS.CheckPaidInvoice(phoneNumber))
+                {
+                    availablePhoneNumber.Remove(phoneNumber);
+                }
+            }
+            return availablePhoneNumber;
         }
     }
 }

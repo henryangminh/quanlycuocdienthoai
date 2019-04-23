@@ -23,6 +23,11 @@ namespace quanlycuocdienthoai_win.DAL
             return db.Postages.Find(id);
         }
 
+        public Postage GetTheLastPostage()
+        {
+            return db.Postages.OrderByDescending(x => x.KeyId).FirstOrDefault();
+        }
+
         public bool Add(Postage postage)
         {
             if (postage != null) return false;
