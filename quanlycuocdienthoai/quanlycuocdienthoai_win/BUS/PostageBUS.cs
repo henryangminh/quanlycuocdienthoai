@@ -14,6 +14,7 @@ namespace quanlycuocdienthoai_win.BUS
         Shared shared = new Shared();
         PostageDAL postageDAL = new PostageDAL();
         PostageDetailDAL postageDetailDAL = new PostageDetailDAL();
+        PostageDetailBUS postageDetailBUS = new PostageDetailBUS();
 
         public bool CheckAddPostageDetails(string cost)
         {
@@ -60,11 +61,10 @@ namespace quanlycuocdienthoai_win.BUS
         {
             if(postage.KeyId == 0)
             {
-                if (postageDAL.Add(postage))
+                if (postageDAL.Add(postage) != null)
                 {
-                    if (postageDetailDAL.Add(postageDetail))
+                    if (postageDetailBUS.SaveEntities(postageDetail))
                     {
-                        postageDAL.SaveChanges();
                         return true;
                     }
                 }
@@ -76,9 +76,8 @@ namespace quanlycuocdienthoai_win.BUS
         {
             if (postage.KeyId > 0)
             {
-                if (postageDAL.Update(postage))
+                if (postageDAL.Update(postage) != null)
                 {
-                    postageDAL.SaveChanges();
                     return true;
                 }
             }

@@ -72,18 +72,16 @@ namespace quanlycuocdienthoai_win.BUS
         {
             if (sIM.KeyId == 0)
             {
-                if (simDAL.Add(sIM))
+                if (simDAL.Add(sIM) != null)
                 {
-                    simDAL.SaveChanges();
                     return true;
                 }
                 return false;
             }
             else
             {
-                if (simDAL.Update(sIM))
+                if (simDAL.Update(sIM) != null)
                 {
-                    simDAL.SaveChanges();
                     return true;
                 }
                 return false;

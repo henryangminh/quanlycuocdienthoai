@@ -17,17 +17,24 @@ namespace quanlycuocdienthoai_win.DAL
             return db.PostageDetails.Where(x => x.PostageFK == postageId).ToList();
         }
 
-        public bool Add(PostageDetail postageDetail)
+        public PostageDetail Add(PostageDetail postageDetail)
         {
-            if (postageDetail == null) return false;
-            db.PostageDetails.Add(postageDetail);
-            return true;
+            if (postageDetail == null) return null;
+            db.Entry(postageDetail).State = System.Data.Entity.EntityState.Added;
+            db.SaveChanges();
+            return postageDetail;
         }
 
         public bool Add(List<PostageDetail> postageDetails)
         {
             db.PostageDetails.AddRange(postageDetails);
+            db.SaveChanges();
             return true;
+        }
+
+        public void SaveChanges()
+        {
+            db.SaveChanges();
         }
     }
 }

@@ -23,18 +23,20 @@ namespace quanlycuocdienthoai_win.DAL
             return db.InvoiceRegisters.Find(id);
         }
 
-        public bool Add(InvoiceRegister invoiceRegister)
+        public InvoiceRegister Add(InvoiceRegister invoiceRegister)
         {
-            if (invoiceRegister != null) return false;
-            db.InvoiceRegisters.Add(invoiceRegister);
-            return true;
+            if (invoiceRegister == null) return null;
+            db.Entry(invoiceRegister).State = System.Data.Entity.EntityState.Added;
+            db.SaveChanges();
+            return invoiceRegister;
         }
 
-        public bool Update(InvoiceRegister invoiceRegister)
+        public InvoiceRegister Update(InvoiceRegister invoiceRegister)
         {
-            if (invoiceRegister != null) return false;
+            if (invoiceRegister == null) return null;
             db.Entry(invoiceRegister).State = EntityState.Modified;
-            return true;
+            SaveChanges();
+            return invoiceRegister;
         }
 
         public void SaveChanges()

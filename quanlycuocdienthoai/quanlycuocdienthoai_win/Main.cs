@@ -692,10 +692,15 @@ namespace quanlycuocdienthoai_win
         {
             shared.CheckMinMaxValueOfNumericUpDown(nudPhoneDetailYear);
         }
+
+        private void btnChargePhoneCallDetail_Click(object sender, EventArgs e)
+        {
+            phoneCallDetailBUS.CalculatePhoneCallDetails((int)nudPhoneDetailYear.Value, (int)nudPhoneDetailMonth.Value);
+        }
         #endregion
 
         #region Invoice Postage
-        
+
         #endregion
     }
 }

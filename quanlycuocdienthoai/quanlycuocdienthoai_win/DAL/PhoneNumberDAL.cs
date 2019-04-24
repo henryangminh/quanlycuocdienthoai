@@ -33,18 +33,20 @@ namespace quanlycuocdienthoai_win.DAL
             return db.PhoneNumbers.Find(id);
         }
 
-        public bool Add(PhoneNumber phoneNumber)
+        public PhoneNumber Add(PhoneNumber phoneNumber)
         {
-            if (phoneNumber != null) return false;
-            db.PhoneNumbers.Add(phoneNumber);
-            return true;
+            if (phoneNumber == null) return null;
+            db.Entry(phoneNumber).State = System.Data.Entity.EntityState.Added;
+            db.SaveChanges();
+            return phoneNumber;
         }
 
-        public bool Update(PhoneNumber phoneNumber)
+        public PhoneNumber Update(PhoneNumber phoneNumber)
         {
-            if (phoneNumber != null) return false;
+            if (phoneNumber == null) return null;
             db.Entry(phoneNumber).State = EntityState.Modified;
-            return true;
+            SaveChanges();
+            return phoneNumber;
         }
 
         public void SaveChanges()

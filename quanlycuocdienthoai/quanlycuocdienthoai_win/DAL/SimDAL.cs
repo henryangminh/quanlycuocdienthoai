@@ -35,18 +35,20 @@ namespace quanlycuocdienthoai_win.DAL
             return db.SIMs.Find(id);
         }
 
-        public bool Add(SIM sIM)
+        public SIM Add(SIM sIM)
         {
-            if (sIM == null) return false;
-            db.SIMs.Add(sIM);
-            return true;
+            if (sIM == null) return null;
+            db.Entry(sIM).State = System.Data.Entity.EntityState.Added;
+            SaveChanges();
+            return sIM;
         }
 
-        public bool Update(SIM sIM)
+        public SIM Update(SIM sIM)
         {
-            if (sIM != null) return false;
+            if (sIM == null) return null;
             db.Entry(sIM).State = EntityState.Modified;
-            return true;
+            SaveChanges();
+            return sIM;
         }
 
         public void SaveChanges()

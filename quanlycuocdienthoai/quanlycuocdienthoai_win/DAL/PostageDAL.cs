@@ -28,18 +28,20 @@ namespace quanlycuocdienthoai_win.DAL
             return db.Postages.OrderByDescending(x => x.KeyId).FirstOrDefault();
         }
 
-        public bool Add(Postage postage)
+        public Postage Add(Postage postage)
         {
-            if (postage != null) return false;
-            db.Postages.Add(postage);
-            return true;
+            if (postage == null) return null;
+            db.Entry(postage).State = System.Data.Entity.EntityState.Added;
+            db.SaveChanges();
+            return postage;
         }
 
-        public bool Update(Postage postage)
+        public Postage Update(Postage postage)
         {
-            if (postage != null) return false;
+            if (postage == null) return null;
             db.Entry(postage).State = EntityState.Modified;
-            return true;
+            SaveChanges();
+            return postage;
         }
 
         public void SaveChanges()

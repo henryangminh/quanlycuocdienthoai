@@ -116,7 +116,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtViewPhoneCallDetailPeriod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnViewPhoneCallDetail = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnChargePhoneCallDetail = new System.Windows.Forms.Button();
             this.btnGenerateRandomDate = new System.Windows.Forms.Button();
             this.label57 = new System.Windows.Forms.Label();
             this.nudPhoneDetailYear = new System.Windows.Forms.NumericUpDown();
@@ -954,7 +954,7 @@
             this.tabPagePhoneCallDetail.Controls.Add(this.label58);
             this.tabPagePhoneCallDetail.Controls.Add(this.dataGridView2);
             this.tabPagePhoneCallDetail.Controls.Add(this.dataGridView1);
-            this.tabPagePhoneCallDetail.Controls.Add(this.button1);
+            this.tabPagePhoneCallDetail.Controls.Add(this.btnChargePhoneCallDetail);
             this.tabPagePhoneCallDetail.Controls.Add(this.btnGenerateRandomDate);
             this.tabPagePhoneCallDetail.Controls.Add(this.label57);
             this.tabPagePhoneCallDetail.Controls.Add(this.nudPhoneDetailYear);
@@ -1094,14 +1094,15 @@
             this.btnViewPhoneCallDetail.Text = "Xem chi tiết";
             this.btnViewPhoneCallDetail.UseColumnTextForButtonValue = true;
             // 
-            // button1
+            // btnChargePhoneCallDetail
             // 
-            this.button1.Location = new System.Drawing.Point(89, 136);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Tính cước";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnChargePhoneCallDetail.Location = new System.Drawing.Point(89, 136);
+            this.btnChargePhoneCallDetail.Name = "btnChargePhoneCallDetail";
+            this.btnChargePhoneCallDetail.Size = new System.Drawing.Size(75, 23);
+            this.btnChargePhoneCallDetail.TabIndex = 44;
+            this.btnChargePhoneCallDetail.Text = "Tính cước";
+            this.btnChargePhoneCallDetail.UseVisualStyleBackColor = true;
+            this.btnChargePhoneCallDetail.Click += new System.EventHandler(this.btnChargePhoneCallDetail_Click);
             // 
             // btnGenerateRandomDate
             // 
@@ -2277,7 +2278,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewPhoneCallDetailPeriod;
         private System.Windows.Forms.DataGridViewButtonColumn btnViewPhoneCallDetail;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnChargePhoneCallDetail;
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewInvoicePostagePhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewInvoicePostageTotal;

@@ -24,7 +24,7 @@ namespace quanlycuocdienthoai_win.BUS
             string fileName = date.Month.ToString() + date.Year.ToString() + ".txt";
 
             string dirRoot = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-            string dirOfFile = Path.Combine(dirRoot, Const.PhoneCallDirection);
+            string dirOfFile = dirRoot + Const.PhoneCallDirection;
             string dirToFile = Path.Combine(dirOfFile, fileName);
 
             if (File.Exists(dirToFile))
@@ -189,7 +189,11 @@ namespace quanlycuocdienthoai_win.BUS
         public void CalculatePhoneCallDetails(int Year, int Month)
         {
             DateTime dateStartOfMonth = new DateTime(Year, Month, 1);
-            if (!CheckExistPhoneCallLog(dateStartOfMonth))
+            if (postageBUS.GetTheLastPostage() == null)
+            {
+                MessageBox.Show("Không có dữ liệu tính giá cước");
+            }
+            else if (!CheckExistPhoneCallLog(dateStartOfMonth))
             {
                 MessageBox.Show($"Dữ liệu chi tiết cuộc gọi tháng {dateStartOfMonth.Month}/{dateStartOfMonth.Year} chưa có");
             }
@@ -198,11 +202,12 @@ namespace quanlycuocdienthoai_win.BUS
                 string fileName = Month.ToString() + Year.ToString() + ".txt";
 
                 string dirRoot = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-                string dirOfFile = Path.Combine(dirRoot, Const.PhoneCallDirection);
+                string dirOfFile = dirRoot + Const.PhoneCallDirection;
                 string dirToFile = Path.Combine(dirOfFile, fileName);
 
                 string message="";
                 List<PhoneNumber> availablePhoneNumber = phoneNumberBUS.GetAvailablePhoneNumber(dateStartOfMonth);
+                List<PhoneCallDetail> phoneCallDetails = new List<PhoneCallDetail>();
 
                 using (StreamReader sr = new StreamReader(dirToFile))
                 {
@@ -220,6 +225,19 @@ namespace quanlycuocdienthoai_win.BUS
                         else if (Start > End)
                         {
                             message += $"Dòng thứ {lineNo} có lỗi: Ngày bắt đầu sau ngày kết thúc\n";
+                        }
+                        else if (!availablePhoneNumber.Any(x => x.KeyId == Convert.ToInt32(data[0])))
+                        {
+                            message += $"Dòng thứ {lineNo} có lỗi: SĐT chưa đóng tiền hoặc điện thoại này không có hiệu lực\n";
+                        }
+                        else
+                        {
+                            PhoneCallDetail phoneCallDetail = new PhoneCallDetail();
+                            phoneCallDetail.PhoneNumberFK = Convert.ToInt32(data[0]);
+                            phoneCallDetail.TimeStart = Start;
+                            phoneCallDetail.TimeFinish = End;
+                            phoneCallDetail.SubTotal = ChargePhoneCallDetail(Start, End);
+                            phoneCallDetails.Add(phoneCallDetail);
                         }
                     }
                 }

@@ -77,13 +77,12 @@ namespace quanlycuocdienthoai_win.BUS
         {
             if (invoiceRegister.KeyId == 0)
             {
-                if (invoiceRegisterDAL.Add(invoiceRegister))
+                if (invoiceRegisterDAL.Add(invoiceRegister) != null)
                 {
                     PhoneNumber phoneNumber = phoneNumberDAL.GetById(invoiceRegister.PhoneNumberFK);
                     phoneNumber.Status = true;
-                    if (phoneNumberDAL.Update(phoneNumber))
+                    if (phoneNumberDAL.Update(phoneNumber) != null)
                     {
-                        invoiceRegisterDAL.SaveChanges();
                         return true;
                     }
                 }
@@ -91,17 +90,23 @@ namespace quanlycuocdienthoai_win.BUS
             }
             else
             {
-                if (invoiceRegisterDAL.Update(invoiceRegister))
+                if (invoiceRegisterDAL.Update(invoiceRegister) != null)
                 {
                     PhoneNumber phoneNumber = phoneNumberDAL.GetById(invoiceRegister.PhoneNumberFK);
                     phoneNumber.Status = false;
 
                     SIM sIM = simDAL.GetTheLastestSIM(phoneNumber.PhoneNo);
                     sIM.Status = false;
-                    if (invoiceRegisterDAL.Update(invoiceRegister) && phoneNumberDAL.Update(phoneNumber) && simDAL.Update(sIM))
+
+                    if (invoiceRegisterDAL.Update(invoiceRegister) != null)
                     {
-                        invoiceRegisterDAL.SaveChanges();
-                        return true;
+                        if(phoneNumberDAL.Update(phoneNumber) != null)
+                        {
+                            if(simDAL.Update(sIM) != null)
+                            {
+                                return true;
+                            }
+                        }
                     }
                 }
                 return false;

@@ -16,7 +16,7 @@ namespace quanlycuocdienthoai_win.BUS
         {
             return postageDetailDAL.GetByPostageId(postageId);
         }
-
+        /*
         public bool Add(PostageDetail postageDetail)
         {
             return postageDetailDAL.Add(postageDetail);
@@ -29,6 +29,12 @@ namespace quanlycuocdienthoai_win.BUS
                 if (!Add(postageDetail))
                     return false;
             }
+            return true;
+        }
+        */
+        public bool SaveEntities(List<PostageDetail> postageDetails)
+        {
+            postageDetailDAL.Add(postageDetails);
             return true;
         }
     }

@@ -63,18 +63,16 @@ namespace quanlycuocdienthoai_win.BUS
         {
             if (customer.KeyId == 0)
             {
-                if (customerDAL.Add(customer))
+                if (customerDAL.Add(customer) != null)
                 {
-                    customerDAL.SaveChanges();
                     return true;
                 }
                 return false;
             }
             else
             {
-                if (customerDAL.Update(customer))
+                if (customerDAL.Update(customer) != null)
                 {
-                    customerDAL.SaveChanges();
                     return true;
                 }
                 return false;

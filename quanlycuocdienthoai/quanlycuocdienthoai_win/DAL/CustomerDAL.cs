@@ -28,18 +28,20 @@ namespace quanlycuocdienthoai_win.DAL
             return db.Customers.Find(id);
         }
 
-        public bool Add(Customer customer)
+        public Customer Add(Customer customer)
         {
-            if (customer != null) return false;
-            db.Customers.Add(customer);
-            return true;
+            if (customer == null) return null;
+            db.Entry(customer).State = System.Data.Entity.EntityState.Added;
+            db.SaveChanges();
+            return customer;
         }
 
-        public bool Update(Customer customer)
+        public Customer Update(Customer customer)
         {
-            if (customer != null) return false;
+            if (customer == null) return null;
             db.Entry(customer).State = EntityState.Modified;
-            return true;
+            SaveChanges();
+            return customer;
         }
 
         public void SaveChanges()

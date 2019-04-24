@@ -77,18 +77,16 @@ namespace quanlycuocdienthoai_win.BUS
         {
             if (phoneNumber.KeyId == 0)
             {
-                if (phoneNumberDAL.Add(phoneNumber))
+                if (phoneNumberDAL.Add(phoneNumber) != null)
                 {
-                    phoneNumberDAL.SaveChanges();
                     return true;
                 }
                 return false;
             }
             else
             {
-                if (phoneNumberDAL.Update(phoneNumber))
+                if (phoneNumberDAL.Update(phoneNumber) != null)
                 {
-                    phoneNumberDAL.SaveChanges();
                     return true;
                 }
                 return false;
