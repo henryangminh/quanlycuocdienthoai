@@ -17,17 +17,23 @@ namespace quanlycuocdienthoai_win.DAL
         public SIM GetTheLastestSIM(string number)
         {
             int idPhoneNo = phoneNumberDAL.GetByPhoneNumber(number).KeyId;
-            return db.SIMs.Where(x => x.PhoneNumberFK == idPhoneNo && x.Status == true).FirstOrDefault();
+            return db.SIMs.Where(x => x.PhoneNumberFK == idPhoneNo && x.Status == true)
+                .Include(x => x.PhoneNumberFKNavigation)
+                .FirstOrDefault();
         }
 
         public List<SIM> GetActiveSim()
         {
-            return db.SIMs.Where(x => (x.Status == false && x.PhoneNumberFK == null)).ToList();
+            return db.SIMs.Where(x => (x.Status == false && x.PhoneNumberFK == null))
+                .Include(x => x.PhoneNumberFKNavigation)
+                .ToList();
         }
 
         public List<SIM> GetAll()
         {
-            return db.SIMs.ToList();
+            return db.SIMs
+                .Include(x => x.PhoneNumberFKNavigation)
+                .ToList();
         }
 
         public SIM GetById(int id)

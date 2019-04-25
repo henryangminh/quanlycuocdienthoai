@@ -15,7 +15,12 @@ namespace quanlycuocdienthoai_win.DAL
 
         public List<InvoiceRegister> GetAll()
         {
-            return db.InvoiceRegisters.ToList();
+            //return db.InvoiceRegisters.ToList();
+
+            return db.InvoiceRegisters
+                .Include(x => x.CustomerFKNavigation)
+                .Include(x => x.PhoneNumberFKNavigation)
+                .ToList();
         }
 
         public InvoiceRegister GetById(int id)
