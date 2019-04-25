@@ -116,6 +116,7 @@ namespace quanlycuocdienthoai_win.BUS
 
         public PostageDetail GetHourMark(List<PostageDetail> postageDetails, TimeSpan time)
         {
+            //if (time < postageDetails[0].HourMark) return postageDetails[0];
             for (int i = 0; i < postageDetails.Count - 1; i++)
             {
                 if (time > postageDetails[i].HourMark && time < postageDetails[i + 1].HourMark)
@@ -143,17 +144,17 @@ namespace quanlycuocdienthoai_win.BUS
             PostageDetail HourMarkStart = GetHourMark(postageDetails, start);
             PostageDetail HourMarkEnd = GetHourMark(postageDetails, end);
 
-            if (HourMarkStart.KeyId == HourMarkEnd.KeyId)
-            {
-                return ChargeTimeRange(start, end, HourMarkStart.Cost);
-            }
-
             if (start < end)
             {
+                if (HourMarkStart.KeyId == HourMarkEnd.KeyId)
+                {
+                    return ChargeTimeRange(start, end, HourMarkStart.Cost);
+                }
                 double charge = 0;
-                PostageDetail NextMarkStart = postageDetails[HourMarkStart.KeyId + 1];
+                int index;
+                PostageDetail NextMarkStart = ((index = postageDetails.IndexOf(HourMarkStart) + 1) < postageDetails.Count) ? postageDetails[index] : postageDetails[0];
                 charge += ChargeTimeRange(start, NextMarkStart.HourMark, HourMarkStart.Cost);
-                for (int i = NextMarkStart.KeyId; i < postageDetails.Count - 1; i++)
+                for (int i = NextMarkStart.KeyId; i < HourMarkEnd.KeyId; i++)
                 {
                     charge += ChargeTimeRange(postageDetails[i].HourMark, postageDetails[i + 1].HourMark, postageDetails[i].Cost);
                 }
@@ -238,6 +239,8 @@ namespace quanlycuocdienthoai_win.BUS
                             phoneCallDetail.TimeFinish = End;
                             phoneCallDetail.SubTotal = ChargePhoneCallDetail(Start, End);
                             phoneCallDetails.Add(phoneCallDetail);
+
+                            lineNo++;
                         }
                     }
                 }
