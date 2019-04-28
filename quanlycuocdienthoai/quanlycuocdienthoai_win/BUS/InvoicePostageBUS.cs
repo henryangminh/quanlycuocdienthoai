@@ -23,5 +23,10 @@ namespace quanlycuocdienthoai_win.BUS
                 return true;
             return false;
         }
+
+        public List<InvoicePostage> SaveEntities(List<InvoicePostage> invoicePostages)
+        {
+            return invoicePostageDAL.Add(invoicePostages);
+        }
     }
 }

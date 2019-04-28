@@ -16,5 +16,12 @@ namespace quanlycuocdienthoai_win.DAL
         {
             return db.InvoicePostages.Where(x => x.PhoneNumberFK == PhoneNumberFK).OrderByDescending(x => x.PeriodFKNavigation.PeriodPayment).FirstOrDefault();
         }
+
+        public List<InvoicePostage> Add(List<InvoicePostage> invoicePostages)
+        {
+            var model = db.InvoicePostages.AddRange(invoicePostages).ToList();
+            db.SaveChanges();
+            return model;
+        }
     }
 }

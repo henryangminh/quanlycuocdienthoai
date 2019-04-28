@@ -59,6 +59,7 @@
     <Compile Include="BUS\CustomerBUS.cs" />
     <Compile Include="BUS\InvoicePostageBUS.cs" />
     <Compile Include="BUS\InvoiceRegisterBUS.cs" />
+    <Compile Include="BUS\PeriodBUS.cs" />
     <Compile Include="BUS\PhoneCallDetailBUS.cs" />
     <Compile Include="BUS\PhoneNumberBUS.cs" />
     <Compile Include="BUS\PostageBUS.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="DAL\CustomerDAL.cs" />
     <Compile Include="DAL\InvoicePostageDAL.cs" />
     <Compile Include="DAL\InvoiceRegisterDAL.cs" />
+    <Compile Include="DAL\PeriodDAL.cs" />
     <Compile Include="DAL\PhoneCallDetailDAL.cs" />
     <Compile Include="DAL\PhoneNumberDAL.cs" />
     <Compile Include="DAL\PostageDAL.cs" />

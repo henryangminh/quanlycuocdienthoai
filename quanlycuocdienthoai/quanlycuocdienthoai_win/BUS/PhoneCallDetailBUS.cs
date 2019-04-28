@@ -1,4 +1,5 @@
 ﻿using quanlycuocdienthoai.Models;
+using quanlycuocdienthoai_win.DAL;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,11 +12,13 @@ namespace quanlycuocdienthoai_win.BUS
 {
     public class PhoneCallDetailBUS
     {
+        PhoneCallDetailDAL phoneCallDetailDAL = new PhoneCallDetailDAL();
         InvoiceRegisterBUS invoiceRegisterBUS = new InvoiceRegisterBUS();
         PhoneNumberBUS phoneNumberBUS = new PhoneNumberBUS();
         InvoicePostageBUS invoicePostageBUS = new InvoicePostageBUS();
         PostageBUS postageBUS = new PostageBUS();
         PostageDetailBUS postageDetailBUS = new PostageDetailBUS();
+        PeriodBUS periodBUS = new PeriodBUS();
 
         static Random random = new Random();
 
@@ -194,6 +197,10 @@ namespace quanlycuocdienthoai_win.BUS
             {
                 MessageBox.Show("Không có dữ liệu tính giá cước");
             }
+            if (periodBUS.GetByDate(dateStartOfMonth) != null)
+            {
+                MessageBox.Show($"Dữ liệu cước tháng {dateStartOfMonth.Month}/{dateStartOfMonth.Year} đã được tính");
+            }
             else if (!CheckExistPhoneCallLog(dateStartOfMonth))
             {
                 MessageBox.Show($"Dữ liệu chi tiết cuộc gọi tháng {dateStartOfMonth.Month}/{dateStartOfMonth.Year} chưa có");
@@ -244,6 +251,26 @@ namespace quanlycuocdienthoai_win.BUS
                         }
                     }
                 }
+
+                Period period = new Period();
+                period.PeriodPayment = dateStartOfMonth;
+                Period periodRs = periodBUS.SaveEntities(period);
+
+                phoneCallDetailDAL.Add(phoneCallDetails);
+
+                List<InvoicePostage> result = phoneCallDetails
+                    .GroupBy(c => c.PhoneNumberFK)
+                    .Select(cl => new InvoicePostage
+                    {
+                        PeriodFK = periodRs.KeyId,
+                        PhoneNumberFK = cl.First().PhoneNumberFK,
+                        Total = cl.Sum(c => c.SubTotal),
+                        PaidPostage = false,
+                    }).ToList();
+
+                invoicePostageBUS.SaveEntities(result);
+
+                MessageBox.Show($"Tính cước tháng {dateStartOfMonth.Month}/{dateStartOfMonth.Year} thành công");
             }
         }
     }
