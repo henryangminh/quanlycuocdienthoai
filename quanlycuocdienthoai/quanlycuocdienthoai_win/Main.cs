@@ -27,6 +27,7 @@ namespace quanlycuocdienthoai_win
             grvAddHourMark.CellClick += new DataGridViewCellEventHandler(DeleteHourMark);
             grvAddHourMark.CellEndEdit += new DataGridViewCellEventHandler(ChangePostageCost);
             grvPostage.CellClick += new DataGridViewCellEventHandler(ShowPostageDetail);
+            grvPeriod.CellClick += new DataGridViewCellEventHandler(ShowPhoneCallInvoicePostage);
             tabPostageProject.SelectedIndexChanged += new EventHandler(LoadAll);
 
             LoadAll();
@@ -41,6 +42,8 @@ namespace quanlycuocdienthoai_win
         PostageBUS postageBUS = new PostageBUS();
         PostageDetailBUS postageDetailBUS = new PostageDetailBUS();
         PhoneCallDetailBUS phoneCallDetailBUS = new PhoneCallDetailBUS();
+        PeriodBUS periodBUS = new PeriodBUS();
+        InvoicePostageBUS invoicePostageBUS = new InvoicePostageBUS();
         #endregion
 
         private void LoadAll()
@@ -50,12 +53,14 @@ namespace quanlycuocdienthoai_win
             LoadPhoneNumber(phoneNumberBUS.GetAll());
             LoadSim(simBUS.GetAll());
             LoadPostage(postageBUS.GetAll());
+            LoadPeriod(periodBUS.GetAll());
 
             GetComboboxPhoneNumber(cbxRegisterPhoneNumber, true);
             GetComboboxPhoneNumber(cbxRegisterPhoneNumberSearch, false);
             GetComboboxPhoneNumber(cbxViewPhoneNumberPhoneNoSearch, false);
             GetComboboxPhoneNumber(cbxSimPhoneNumberSearch, false);
             GetComboboxPhoneNumber(cbxSimPhoneNumber, false);
+            GetComboboxPhoneNumber(cbxPhoneCallDetailPhoneNumber, false);
             GetComboboxActiveSim(cbxSimActive, simBUS.GetActiveSim());
         }
 
@@ -697,10 +702,94 @@ namespace quanlycuocdienthoai_win
         {
             phoneCallDetailBUS.CalculatePhoneCallDetails((int)nudPhoneDetailYear.Value, (int)nudPhoneDetailMonth.Value);
         }
+
+        private void btnPhoneCallDetailPhoneNumberSearch_Click(object sender, EventArgs e)
+        {
+            List<PhoneCallDetail> phoneCallDetails = phoneCallDetailBUS.GetPhoneCallDetailByPhoneNumber(cbxPhoneCallDetailPhoneNumber.Text);
+            LoadPhoneCallDetail(phoneCallDetails);
+        }
+
+        private void LoadPhoneCallDetail(PhoneCallDetail phoneCallDetail)
+        {
+            if (phoneCallDetail != null)
+            {
+                int n = grvPhoneCallDetail.Rows.Add();
+                grvPhoneCallDetail.Rows[n].Cells[0].Value = phoneCallDetail.PhoneNumberFKNavigation.PhoneNo;
+                grvPhoneCallDetail.Rows[n].Cells[1].Value = phoneCallDetail.TimeStart;
+                grvPhoneCallDetail.Rows[n].Cells[2].Value = phoneCallDetail.TimeFinish;
+                grvPhoneCallDetail.Rows[n].Cells[3].Value = phoneCallDetail.SubTotal;
+            }
+        }
+
+        private void LoadPhoneCallDetail(List<PhoneCallDetail> phoneCallDetails)
+        {
+            shared.ClearDataGridView(grvPhoneCallDetail);
+
+            foreach (var phoneCallDetail in phoneCallDetails)
+            {
+                LoadPhoneCallDetail(phoneCallDetail);
+            }
+        }
         #endregion
 
         #region Invoice Postage
+        private void ShowPhoneCallInvoicePostage(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+            {
+                int rowIndex = e.RowIndex;
+                string period = grvPeriod.Rows[rowIndex].Cells[0].Value.ToString();
+                DateTime dtPeriod = Convert.ToDateTime(period);
+                lblPeriod.Text = period;
 
+                List<InvoicePostage> invoicePostages = invoicePostageBUS.GetByPeriod(dtPeriod);
+                LoadInvoicePostageDetail(invoicePostages);
+            }
+        }
+
+        private void LoadInvoicePostageDetail(InvoicePostage invoicePostage)
+        {
+            if (invoicePostage != null)
+            {
+                int n = grvInvoicePostage.Rows.Add();
+                grvInvoicePostage.Rows[n].Cells[0].Value = invoicePostage.PhoneNumberFKNavigation.PhoneNo;
+                grvInvoicePostage.Rows[n].Cells[1].Value = invoicePostage.Total;
+                grvInvoicePostage.Rows[n].Cells[2].Value = (invoicePostage.PaidPostage) ? "Đã thanh toán" : "Chưa thanh toán";
+            }
+        }
+
+        private void LoadInvoicePostageDetail(List<InvoicePostage> invoicePostages)
+        {
+            shared.ClearDataGridView(grvInvoicePostage);
+
+            foreach (var invoicePostage in invoicePostages)
+            {
+                LoadInvoicePostageDetail(invoicePostage);
+            }
+        }
         #endregion
+
+        #region Period
+        private void LoadPeriod(Period period)
+        {
+            if (period != null)
+            {
+                int n = grvPeriod.Rows.Add();
+                grvPeriod.Rows[n].Cells[0].Value = period.PeriodPayment;
+            }
+        }
+
+        private void LoadPeriod(List<Period> periods)
+        {
+            shared.ClearDataGridView(grvPeriod);
+
+            foreach (var period in periods)
+            {
+                LoadPeriod(period);
+            }
+        }
+        #endregion
+
+        
     }
 }

@@ -103,19 +103,15 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.tabPagePhoneCallDetail = new System.Windows.Forms.TabPage();
-            this.lblPhoneCallDetailPeriod = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
+            this.btnPhoneCallDetailPhoneNumberSearch = new System.Windows.Forms.Button();
             this.label59 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxPhoneCallDetailPhoneNumber = new System.Windows.Forms.ComboBox();
             this.label58 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.grvPhoneCallDetail = new System.Windows.Forms.DataGridView();
             this.txtViewPhoneCallDetailPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtViewPhoneCallDetailTimeStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtViewPhoneCallDetailTimeEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtViewPhoneCallDetailSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtViewPhoneCallDetailPeriod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnViewPhoneCallDetail = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnChargePhoneCallDetail = new System.Windows.Forms.Button();
             this.btnGenerateRandomDate = new System.Windows.Forms.Button();
             this.label57 = new System.Windows.Forms.Label();
@@ -128,16 +124,14 @@
             this.label53 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.tabPageInvoicePostage = new System.Windows.Forms.TabPage();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.grvInvoicePostage = new System.Windows.Forms.DataGridView();
             this.txtViewInvoicePostagePhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtViewInvoicePostageTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtViewInvoicePostageStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnViewInvoicePostagePaid = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label63 = new System.Windows.Forms.Label();
+            this.lblPeriod = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.grvPeriod = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label61 = new System.Windows.Forms.Label();
@@ -214,14 +208,13 @@
             this.tabPageInvoiceRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvRegister)).BeginInit();
             this.tabPagePhoneCallDetail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPhoneCallDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfRecord)).BeginInit();
             this.tabPageInvoicePostage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvInvoicePostage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPeriod)).BeginInit();
             this.tabPagePhoneNumber.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhoneNumber)).BeginInit();
             this.tabPageSIM.SuspendLayout();
@@ -947,13 +940,11 @@
             // 
             // tabPagePhoneCallDetail
             // 
-            this.tabPagePhoneCallDetail.Controls.Add(this.lblPhoneCallDetailPeriod);
-            this.tabPagePhoneCallDetail.Controls.Add(this.label60);
+            this.tabPagePhoneCallDetail.Controls.Add(this.btnPhoneCallDetailPhoneNumberSearch);
             this.tabPagePhoneCallDetail.Controls.Add(this.label59);
-            this.tabPagePhoneCallDetail.Controls.Add(this.comboBox1);
+            this.tabPagePhoneCallDetail.Controls.Add(this.cbxPhoneCallDetailPhoneNumber);
             this.tabPagePhoneCallDetail.Controls.Add(this.label58);
-            this.tabPagePhoneCallDetail.Controls.Add(this.dataGridView2);
-            this.tabPagePhoneCallDetail.Controls.Add(this.dataGridView1);
+            this.tabPagePhoneCallDetail.Controls.Add(this.grvPhoneCallDetail);
             this.tabPagePhoneCallDetail.Controls.Add(this.btnChargePhoneCallDetail);
             this.tabPagePhoneCallDetail.Controls.Add(this.btnGenerateRandomDate);
             this.tabPagePhoneCallDetail.Controls.Add(this.label57);
@@ -973,42 +964,34 @@
             this.tabPagePhoneCallDetail.Text = "Chi tiết cuộc gọi";
             this.tabPagePhoneCallDetail.UseVisualStyleBackColor = true;
             // 
-            // lblPhoneCallDetailPeriod
+            // btnPhoneCallDetailPhoneNumberSearch
             // 
-            this.lblPhoneCallDetailPeriod.AutoSize = true;
-            this.lblPhoneCallDetailPeriod.Location = new System.Drawing.Point(687, 220);
-            this.lblPhoneCallDetailPeriod.Name = "lblPhoneCallDetailPeriod";
-            this.lblPhoneCallDetailPeriod.Size = new System.Drawing.Size(22, 13);
-            this.lblPhoneCallDetailPeriod.TabIndex = 51;
-            this.lblPhoneCallDetailPeriod.Text = "xxx";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(614, 220);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(76, 13);
-            this.label60.TabIndex = 50;
-            this.label60.Text = "Kỳ thanh toán:";
+            this.btnPhoneCallDetailPhoneNumberSearch.Location = new System.Drawing.Point(296, 213);
+            this.btnPhoneCallDetailPhoneNumberSearch.Name = "btnPhoneCallDetailPhoneNumberSearch";
+            this.btnPhoneCallDetailPhoneNumberSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnPhoneCallDetailPhoneNumberSearch.TabIndex = 50;
+            this.btnPhoneCallDetailPhoneNumberSearch.Text = "Tìm";
+            this.btnPhoneCallDetailPhoneNumberSearch.UseVisualStyleBackColor = true;
+            this.btnPhoneCallDetailPhoneNumberSearch.Click += new System.EventHandler(this.btnPhoneCallDetailPhoneNumberSearch_Click);
             // 
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(326, 220);
+            this.label59.Location = new System.Drawing.Point(8, 218);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(32, 13);
             this.label59.TabIndex = 49;
             this.label59.Text = "SĐT:";
             // 
-            // comboBox1
+            // cbxPhoneCallDetailPhoneNumber
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(367, 216);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(241, 21);
-            this.comboBox1.TabIndex = 48;
+            this.cbxPhoneCallDetailPhoneNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxPhoneCallDetailPhoneNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbxPhoneCallDetailPhoneNumber.FormattingEnabled = true;
+            this.cbxPhoneCallDetailPhoneNumber.Location = new System.Drawing.Point(49, 214);
+            this.cbxPhoneCallDetailPhoneNumber.Name = "cbxPhoneCallDetailPhoneNumber";
+            this.cbxPhoneCallDetailPhoneNumber.Size = new System.Drawing.Size(241, 21);
+            this.cbxPhoneCallDetailPhoneNumber.TabIndex = 48;
             // 
             // label58
             // 
@@ -1020,22 +1003,22 @@
             this.label58.TabIndex = 47;
             this.label58.Text = "Tìm kiếm";
             // 
-            // dataGridView2
+            // grvPhoneCallDetail
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToOrderColumns = true;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grvPhoneCallDetail.AllowUserToAddRows = false;
+            this.grvPhoneCallDetail.AllowUserToDeleteRows = false;
+            this.grvPhoneCallDetail.AllowUserToOrderColumns = true;
+            this.grvPhoneCallDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvPhoneCallDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.txtViewPhoneCallDetailPhoneNumber,
             this.txtViewPhoneCallDetailTimeStart,
             this.txtViewPhoneCallDetailTimeEnd,
             this.txtViewPhoneCallDetailSubTotal});
-            this.dataGridView2.Location = new System.Drawing.Point(258, 262);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(711, 410);
-            this.dataGridView2.TabIndex = 46;
+            this.grvPhoneCallDetail.Location = new System.Drawing.Point(10, 262);
+            this.grvPhoneCallDetail.Name = "grvPhoneCallDetail";
+            this.grvPhoneCallDetail.ReadOnly = true;
+            this.grvPhoneCallDetail.Size = new System.Drawing.Size(959, 410);
+            this.grvPhoneCallDetail.TabIndex = 46;
             // 
             // txtViewPhoneCallDetailPhoneNumber
             // 
@@ -1064,35 +1047,6 @@
             this.txtViewPhoneCallDetailSubTotal.Name = "txtViewPhoneCallDetailSubTotal";
             this.txtViewPhoneCallDetailSubTotal.ReadOnly = true;
             this.txtViewPhoneCallDetailSubTotal.Width = 120;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.txtViewPhoneCallDetailPeriod,
-            this.btnViewPhoneCallDetail});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 262);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(245, 410);
-            this.dataGridView1.TabIndex = 45;
-            // 
-            // txtViewPhoneCallDetailPeriod
-            // 
-            this.txtViewPhoneCallDetailPeriod.HeaderText = "Kỳ thanh toán";
-            this.txtViewPhoneCallDetailPeriod.Name = "txtViewPhoneCallDetailPeriod";
-            this.txtViewPhoneCallDetailPeriod.ReadOnly = true;
-            // 
-            // btnViewPhoneCallDetail
-            // 
-            this.btnViewPhoneCallDetail.HeaderText = "";
-            this.btnViewPhoneCallDetail.Name = "btnViewPhoneCallDetail";
-            this.btnViewPhoneCallDetail.ReadOnly = true;
-            this.btnViewPhoneCallDetail.Text = "Xem chi tiết";
-            this.btnViewPhoneCallDetail.UseColumnTextForButtonValue = true;
             // 
             // btnChargePhoneCallDetail
             // 
@@ -1236,12 +1190,10 @@
             // 
             // tabPageInvoicePostage
             // 
-            this.tabPageInvoicePostage.Controls.Add(this.dataGridView4);
-            this.tabPageInvoicePostage.Controls.Add(this.label63);
+            this.tabPageInvoicePostage.Controls.Add(this.grvInvoicePostage);
+            this.tabPageInvoicePostage.Controls.Add(this.lblPeriod);
             this.tabPageInvoicePostage.Controls.Add(this.label64);
-            this.tabPageInvoicePostage.Controls.Add(this.label65);
-            this.tabPageInvoicePostage.Controls.Add(this.comboBox2);
-            this.tabPageInvoicePostage.Controls.Add(this.dataGridView3);
+            this.tabPageInvoicePostage.Controls.Add(this.grvPeriod);
             this.tabPageInvoicePostage.Controls.Add(this.label61);
             this.tabPageInvoicePostage.Controls.Add(this.label62);
             this.tabPageInvoicePostage.Location = new System.Drawing.Point(4, 22);
@@ -1252,22 +1204,22 @@
             this.tabPageInvoicePostage.Text = "Hóa Đơn Tháng";
             this.tabPageInvoicePostage.UseVisualStyleBackColor = true;
             // 
-            // dataGridView4
+            // grvInvoicePostage
             // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.AllowUserToOrderColumns = true;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grvInvoicePostage.AllowUserToAddRows = false;
+            this.grvInvoicePostage.AllowUserToDeleteRows = false;
+            this.grvInvoicePostage.AllowUserToOrderColumns = true;
+            this.grvInvoicePostage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvInvoicePostage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.txtViewInvoicePostagePhoneNumber,
             this.txtViewInvoicePostageTotal,
             this.txtViewInvoicePostageStatus,
             this.btnViewInvoicePostagePaid});
-            this.dataGridView4.Location = new System.Drawing.Point(258, 129);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(711, 543);
-            this.dataGridView4.TabIndex = 56;
+            this.grvInvoicePostage.Location = new System.Drawing.Point(258, 129);
+            this.grvInvoicePostage.Name = "grvInvoicePostage";
+            this.grvInvoicePostage.ReadOnly = true;
+            this.grvInvoicePostage.Size = new System.Drawing.Size(711, 543);
+            this.grvInvoicePostage.TabIndex = 56;
             // 
             // txtViewInvoicePostagePhoneNumber
             // 
@@ -1297,57 +1249,38 @@
             this.btnViewInvoicePostagePaid.Text = "Thanh toán";
             this.btnViewInvoicePostagePaid.UseColumnTextForButtonValue = true;
             // 
-            // label63
+            // lblPeriod
             // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(464, 88);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(22, 13);
-            this.label63.TabIndex = 55;
-            this.label63.Text = "xxx";
+            this.lblPeriod.AutoSize = true;
+            this.lblPeriod.Location = new System.Drawing.Point(81, 89);
+            this.lblPeriod.Name = "lblPeriod";
+            this.lblPeriod.Size = new System.Drawing.Size(22, 13);
+            this.lblPeriod.TabIndex = 55;
+            this.lblPeriod.Text = "xxx";
             // 
             // label64
             // 
             this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(391, 88);
+            this.label64.Location = new System.Drawing.Point(8, 89);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(76, 13);
             this.label64.TabIndex = 54;
             this.label64.Text = "Kỳ thanh toán:";
             // 
-            // label65
+            // grvPeriod
             // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(103, 88);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(32, 13);
-            this.label65.TabIndex = 53;
-            this.label65.Text = "SĐT:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(144, 84);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(241, 21);
-            this.comboBox2.TabIndex = 52;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AllowUserToOrderColumns = true;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grvPeriod.AllowUserToAddRows = false;
+            this.grvPeriod.AllowUserToDeleteRows = false;
+            this.grvPeriod.AllowUserToOrderColumns = true;
+            this.grvPeriod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvPeriod.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewButtonColumn1});
-            this.dataGridView3.Location = new System.Drawing.Point(6, 129);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(245, 543);
-            this.dataGridView3.TabIndex = 46;
+            this.grvPeriod.Location = new System.Drawing.Point(6, 129);
+            this.grvPeriod.Name = "grvPeriod";
+            this.grvPeriod.ReadOnly = true;
+            this.grvPeriod.Size = new System.Drawing.Size(245, 543);
+            this.grvPeriod.TabIndex = 46;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -2083,15 +2016,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvRegister)).EndInit();
             this.tabPagePhoneCallDetail.ResumeLayout(false);
             this.tabPagePhoneCallDetail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPhoneCallDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhoneDetailMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfRecord)).EndInit();
             this.tabPageInvoicePostage.ResumeLayout(false);
             this.tabPageInvoicePostage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvInvoicePostage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvPeriod)).EndInit();
             this.tabPagePhoneNumber.ResumeLayout(false);
             this.tabPagePhoneNumber.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhoneNumber)).EndInit();
@@ -2265,34 +2197,28 @@
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Button btnGenerateRandomDate;
-        private System.Windows.Forms.Label lblPhoneCallDetailPeriod;
-        private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxPhoneCallDetailPhoneNumber;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView grvPhoneCallDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewPhoneCallDetailPhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewPhoneCallDetailTimeStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewPhoneCallDetailTimeEnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewPhoneCallDetailSubTotal;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtViewPhoneCallDetailPeriod;
-        private System.Windows.Forms.DataGridViewButtonColumn btnViewPhoneCallDetail;
         private System.Windows.Forms.Button btnChargePhoneCallDetail;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView grvInvoicePostage;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewInvoicePostagePhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewInvoicePostageTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtViewInvoicePostageStatus;
         private System.Windows.Forms.DataGridViewButtonColumn btnViewInvoicePostagePaid;
-        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label lblPeriod;
         private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView grvPeriod;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Button btnPhoneCallDetailPhoneNumberSearch;
     }
 }
 

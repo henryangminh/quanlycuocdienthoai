@@ -22,6 +22,11 @@ namespace quanlycuocdienthoai_win.BUS
 
         static Random random = new Random();
 
+        public List<PhoneCallDetail> GetPhoneCallDetailByPhoneNumber(string phoneNumber)
+        {
+            return phoneCallDetailDAL.GetPhoneCallDetailByPhoneNumber(phoneNumber);
+        }
+
         public bool CheckExistPhoneCallLog(DateTime date)
         {
             string fileName = date.Month.ToString() + date.Year.ToString() + ".txt";

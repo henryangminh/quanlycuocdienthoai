@@ -12,6 +12,11 @@ namespace quanlycuocdienthoai_win.BUS
     {
         PeriodDAL periodDAL = new PeriodDAL();
 
+        public List<Period> GetAll()
+        {
+            return periodDAL.GetAll();
+        }
+
         public Period SaveEntities(Period period)
         {
             return periodDAL.Add(period);
