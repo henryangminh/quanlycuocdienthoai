@@ -28,6 +28,7 @@ namespace quanlycuocdienthoai_win
             grvAddHourMark.CellEndEdit += new DataGridViewCellEventHandler(ChangePostageCost);
             grvPostage.CellClick += new DataGridViewCellEventHandler(ShowPostageDetail);
             grvPeriod.CellClick += new DataGridViewCellEventHandler(ShowPhoneCallInvoicePostage);
+            grvInvoicePostage.CellClick += new DataGridViewCellEventHandler(PaidInvoicePostage);
             tabPostageProject.SelectedIndexChanged += new EventHandler(LoadAll);
 
             LoadAll();
@@ -765,6 +766,33 @@ namespace quanlycuocdienthoai_win
             foreach (var invoicePostage in invoicePostages)
             {
                 LoadInvoicePostageDetail(invoicePostage);
+            }
+        }
+
+        private void PaidInvoicePostage (object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                int rowIndex = e.RowIndex;
+                string phoneNumber = grvInvoicePostage.Rows[rowIndex].Cells[0].Value.ToString();
+                InvoicePostage invoicePostage = invoicePostageBUS.GetByPeriodAndPhoneNumber(Convert.ToDateTime(lblPeriod.Text), phoneNumber);
+
+                if (invoicePostage.PaidPostage)
+                {
+                    MessageBox.Show("Hóa đơn này đã thanh toán");
+                }
+                else
+                {
+                    if (DialogResult.Yes == MessageBox.Show($"Thanh toán cho SĐT {phoneNumber} ở kỳ thanh toán {invoicePostage.PeriodFKNavigation.PeriodPayment.Month}/{invoicePostage.PeriodFKNavigation.PeriodPayment.Year}\nGiá cước: {invoicePostage.Total}", "", MessageBoxButtons.YesNo))
+                    {
+                        invoicePostage.PaidPostage = true;
+                        if (invoicePostageBUS.Update(invoicePostage) != null)
+                        {
+                            MessageBox.Show("Thanh toán thành công");
+                        }
+                        
+                    }
+                }
             }
         }
         #endregion

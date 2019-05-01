@@ -33,5 +33,22 @@ namespace quanlycuocdienthoai_win.DAL
             db.SaveChanges();
             return model;
         }
+
+        public InvoicePostage Update(InvoicePostage invoicePostage)
+        {
+            if (invoicePostage == null) return null;
+            db.Entry(invoicePostage).State = EntityState.Modified;
+            db.SaveChanges();
+            return invoicePostage;
+        }
+
+        public InvoicePostage GetByPeriodAndPhoneNumber(Period period, PhoneNumber phoneNumber)
+        {
+            return db.InvoicePostages
+                .Include(x => x.PeriodFKNavigation)
+                .Include(x => x.PhoneNumberFKNavigation)
+                .Where(x => x.PeriodFK == period.KeyId && x.PhoneNumberFK == phoneNumber.KeyId)
+                .FirstOrDefault();
+        }
     }
 }

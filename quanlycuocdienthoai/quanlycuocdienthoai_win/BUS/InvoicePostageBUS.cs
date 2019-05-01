@@ -12,6 +12,7 @@ namespace quanlycuocdienthoai_win.BUS
     {
         InvoicePostageDAL invoicePostageDAL = new InvoicePostageDAL();
         PeriodDAL periodDAL = new PeriodDAL();
+        PhoneNumberDAL phoneNumberDAL = new PhoneNumberDAL();
 
         public InvoicePostage GetTheLastInvoicePostage(int PhoneNumberFK)
         {
@@ -34,6 +35,18 @@ namespace quanlycuocdienthoai_win.BUS
         public List<InvoicePostage> SaveEntities(List<InvoicePostage> invoicePostages)
         {
             return invoicePostageDAL.Add(invoicePostages);
+        }
+
+        public InvoicePostage Update(InvoicePostage invoicePostage)
+        {
+            return invoicePostageDAL.Update(invoicePostage);
+        }
+
+        public InvoicePostage GetByPeriodAndPhoneNumber(DateTime dateTime, string phoneNumber)
+        {
+            Period period = periodDAL.GetByDate(dateTime);
+            PhoneNumber number = phoneNumberDAL.GetByPhoneNumber(phoneNumber);
+            return invoicePostageDAL.GetByPeriodAndPhoneNumber(period, number);
         }
     }
 }

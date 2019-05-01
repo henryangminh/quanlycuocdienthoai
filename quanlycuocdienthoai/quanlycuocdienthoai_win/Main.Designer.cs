@@ -1162,7 +1162,7 @@
             this.nudNumberOfRecord.Size = new System.Drawing.Size(64, 20);
             this.nudNumberOfRecord.TabIndex = 4;
             this.nudNumberOfRecord.Value = new decimal(new int[] {
-            10,
+            50,
             0,
             0,
             0});
