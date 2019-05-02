@@ -3,6 +3,7 @@ using quanlycuocdienthoai_win.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,6 +43,17 @@ namespace quanlycuocdienthoai_win.BUS
                 MessageBox.Show("CMND phải có 9 hoặc 12 số");
                 return false;
             }
+
+            try
+            {
+                MailAddress m = new MailAddress(email);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Email không hợp lệ");
+                return false;
+            }
+
             if (checkCMNDexists)
             {
                 var query = customerDAL.GetCustomerByCMND(identity);
