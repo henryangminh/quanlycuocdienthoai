@@ -16,9 +16,29 @@ namespace quanlycuocdienthoai.Controllers
         private PostageContext db = new PostageContext();
 
         // GET: PhoneNumber
-        public ActionResult Index()
+        public ActionResult Index(string txtPhoneNumberSearch)
         {
-            return View(db.PhoneNumbers.ToList());
+            if (txtPhoneNumberSearch == "" || txtPhoneNumberSearch == null)
+                return View(db.PhoneNumbers.ToList());
+            return View(GetByPhoneNumber(txtPhoneNumberSearch));
+        }
+
+        public List<PhoneNumber> GetByPhoneNumber(string number)
+        {
+            return db.PhoneNumbers.Where(x => x.PhoneNo.Contains(number)).ToList();
+        }
+
+        //GET: PhoneNumber/ShowPhoneCallDetail/5
+        public ActionResult ShowPhoneCallDetail(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PhoneCallDetailController phoneCallDetailController = new PhoneCallDetailController();
+            List<PhoneCallDetail> phoneCallDetails = phoneCallDetailController.GetPhoneCallDetailByPhoneNumberId((int)id);
+
+            return View(phoneCallDetails);
         }
 
         // GET: PhoneNumber/Details/5

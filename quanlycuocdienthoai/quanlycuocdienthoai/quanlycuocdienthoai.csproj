@@ -230,6 +230,7 @@
     <Content Include="Views\InvoicePostage\Details.cshtml" />
     <Content Include="Views\InvoicePostage\Edit.cshtml" />
     <Content Include="Views\InvoicePostage\Index.cshtml" />
+    <Content Include="Views\PhoneNumber\ShowPhoneCallDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

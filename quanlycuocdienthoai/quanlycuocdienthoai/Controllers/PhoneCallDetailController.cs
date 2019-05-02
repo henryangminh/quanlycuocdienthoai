@@ -124,5 +124,13 @@ namespace quanlycuocdienthoai.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public List<PhoneCallDetail> GetPhoneCallDetailByPhoneNumberId(int id)
+        {
+            return db.PhoneCallDetails
+                .Include(x => x.PhoneNumberFKNavigation)
+                .Where(x => x.PhoneNumberFK == id)
+                .ToList();
+        }
     }
 }

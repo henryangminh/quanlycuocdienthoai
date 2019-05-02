@@ -191,7 +191,7 @@ namespace quanlycuocdienthoai_win.BUS
             {
                 charge += end.Subtract(start).TotalDays * ChargeFullDay(postageDetails);
             }
-            charge += ChargeTimeRange(start.TimeOfDay, end.TimeOfDay);
+            charge += ChargeTimeRange(start.TimeOfDay, end.TimeOfDay) + 50000;
             return charge;
         }
 
