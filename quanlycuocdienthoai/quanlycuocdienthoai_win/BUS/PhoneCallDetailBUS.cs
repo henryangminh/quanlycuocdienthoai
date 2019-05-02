@@ -22,6 +22,11 @@ namespace quanlycuocdienthoai_win.BUS
 
         static Random random = new Random();
 
+        public List<PhoneCallDetail> GetAll()
+        {
+            return phoneCallDetailDAL.GetAll();
+        }
+
         public List<PhoneCallDetail> GetPhoneCallDetailByPhoneNumber(string phoneNumber)
         {
             return phoneCallDetailDAL.GetPhoneCallDetailByPhoneNumber(phoneNumber);
@@ -202,7 +207,7 @@ namespace quanlycuocdienthoai_win.BUS
             {
                 MessageBox.Show("Không có dữ liệu tính giá cước");
             }
-            if (periodBUS.GetByDate(dateStartOfMonth) != null)
+            else if (periodBUS.GetByDate(dateStartOfMonth) != null)
             {
                 MessageBox.Show($"Dữ liệu cước tháng {dateStartOfMonth.Month}/{dateStartOfMonth.Year} đã được tính");
             }
@@ -255,6 +260,12 @@ namespace quanlycuocdienthoai_win.BUS
                             lineNo++;
                         }
                     }
+                }
+
+                if (message != "")
+                {
+                    message += "Các dòng này sẽ không được ghi";
+                    MessageBox.Show(message);
                 }
 
                 Period period = new Period();

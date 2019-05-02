@@ -51,11 +51,13 @@ namespace quanlycuocdienthoai_win.DAL
 
         public List<InvoiceRegister> GetByCustomer(List<InvoiceRegister> invoiceRegisters, Customer customer)
         {
+            if (customer == null) return new List<InvoiceRegister>();
             return invoiceRegisters.Where(x => x.CustomerFK == customer.KeyId).ToList();
         }
 
         public List<InvoiceRegister> GetByPhoneNumber(List<InvoiceRegister> invoiceRegisters, PhoneNumber phoneNumber)
         {
+            if (phoneNumber == null) return new List<InvoiceRegister>();
             return invoiceRegisters.Where(x => x.PhoneNumberFK == phoneNumber.KeyId).ToList();
         }
 

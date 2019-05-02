@@ -106,7 +106,7 @@ namespace quanlycuocdienthoai_win.BUS
                 availablePhoneNumber.Add(phoneNumber);
             }
             //lấy những sđt đã đóng tiền trong tháng gần nhất
-            foreach (var phoneNumber in availablePhoneNumber)
+            foreach (var phoneNumber in availablePhoneNumber.ToList())
             {
                 if (!invoicePostageBUS.CheckPaidInvoice(phoneNumber))
                 {

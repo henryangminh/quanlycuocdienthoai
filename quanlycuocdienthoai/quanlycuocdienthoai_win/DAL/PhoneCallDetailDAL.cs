@@ -14,6 +14,13 @@ namespace quanlycuocdienthoai_win.DAL
         PostageContext db = new PostageContext();
         PhoneNumberDAL phoneNumberDAL = new PhoneNumberDAL();
 
+        public List<PhoneCallDetail> GetAll()
+        {
+            return db.PhoneCallDetails
+                .Include(x => x.PhoneNumberFKNavigation)
+                .ToList();
+        }
+
         public List<PhoneCallDetail> GetPhoneCallDetailByPhoneNumber(string phoneNumber)
         {
             PhoneNumber number = phoneNumberDAL.GetByPhoneNumber(phoneNumber);

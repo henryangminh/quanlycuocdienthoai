@@ -55,6 +55,7 @@ namespace quanlycuocdienthoai_win
             LoadSim(simBUS.GetAll());
             LoadPostage(postageBUS.GetAll());
             LoadPeriod(periodBUS.GetAll());
+            LoadPhoneCallDetail(phoneCallDetailBUS.GetAll());
 
             GetComboboxPhoneNumber(cbxRegisterPhoneNumber, true);
             GetComboboxPhoneNumber(cbxRegisterPhoneNumberSearch, false);
@@ -789,6 +790,8 @@ namespace quanlycuocdienthoai_win
                         if (invoicePostageBUS.Update(invoicePostage) != null)
                         {
                             MessageBox.Show("Thanh toán thành công");
+                            List<InvoicePostage> invoicePostages = invoicePostageBUS.GetByPeriod(Convert.ToDateTime(lblPeriod.Text));
+                            LoadInvoicePostageDetail(invoicePostages);
                         }
                         
                     }
